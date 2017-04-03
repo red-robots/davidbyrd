@@ -320,4 +320,122 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 }
 
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+
+
+add_action( 'init', 'bella_user_register' );
+function bella_user_register() {
+	if ( bella_check_one_time_code_program() && isset( $_POST['bella_registration_nonce'] ) && wp_verify_nonce( $_POST['bella_registration_nonce'], 'page-registration.php' ) ) {
+        if (isset($_POST['user_email']) && isset($_POST['user_login']) && isset($_POST['user_password'])) {
+	        $user_id = wp_create_user( $_POST['user_login'], $_POST['user_password'], $_POST['user_email'] );
+			if(!is_wp_error($user_id)) {
+				$role = get_post_meta( 294, $_POST['one_time_code'], true );
+				delete_post_meta( 294, 'bella_one_time_code', $_POST['one_time_code'] );
+				delete_post_meta( 294, $_POST['one_time_code'], $role );
+				//potentially add email if not deleted to admin
+				$user = new WP_User( $user_id );
+				$user->add_role( $role );
+				if(strcmp($role,'winning_the_head_game')===0) {
+					wp_redirect( get_the_permalink(486) );
+					exit;
+				}
+			} else {
+			    $_POST['bella_errors'] = "couldn't create user;";
+            }
+		} else {
+	        $_POST['bella_errors'] = "not all fields supplied; ";
+        }
+    }
+}
+function bella_check_one_time_code_program(){
+
+	if(isset($_POST['one_time_code'])){
+		$codes = get_post_meta(294,'bella_one_time_code',false);
+		if(in_array($_POST['one_time_code'],$codes)){
+			return true;
+		}
+	}
+	return false;
+}
+function bella_check_one_time_code(){
+	if ( ((isset( $_POST['bella_check_one_time_code_nonce'] ) && wp_verify_nonce( $_POST['bella_check_one_time_code_nonce'], 'page-registration.php' ) ) ||
+         (isset( $_POST['bella_registration_nonce'] ) && wp_verify_nonce( $_POST['bella_registration_nonce'], 'page-registration.php') )) && isset( $_POST['one_time_code'] )) {
+        $codes = get_post_meta( 294, 'bella_one_time_code', false );
+        if ( in_array( $_POST['one_time_code'], $codes ) ) {
+            return true;
+        }
+	}
+	return false;
+}
+function bella_get_one_time_codes(){
+
+	$codes = get_post_meta(294,'bella_one_time_code',false);?>
+    <table>
+        <tr><th>Codes</th><th>Role</th></tr>
+        <?php foreach($codes as $code):
+            $role = get_post_meta(294,$code,true);?>
+            <tr>
+                <td>
+		            <?php echo $code;?>
+                </td>
+                <td>
+		            <?php echo $role;?>
+                </td>
+            </tr>
+        <?php endforeach;?>
+    </table>
+<?php }
+function bella_process_one_time_codes(){
+    if ( !isset( $_POST['bella_nonce'] ) || !wp_verify_nonce( $_POST['bella_nonce'], basename( __FILE__) ) ){
+        return;
+    }?>
+    <table>
+        <tr><th>Codes</th><th>Role</th></tr>
+        <?php for ( $i = 0; $i < 1; $i ++ ) {
+            $strong = false;
+	        $meta_id_code = false;
+	        $meta_id_role = false;
+            $bytes  = bin2hex( openssl_random_pseudo_bytes( 10, $strong ) );
+            $role = 'winning_the_head_game';
+            if ( $strong ) {
+	            $meta_id_code = add_post_meta( 294, 'bella_one_time_code', $bytes );
+	            $meta_id_role = add_post_meta( 294, $bytes, $role );
+            }
+            if ( $meta_id_code !== false && $meta_id_role !== false ) {?>
+                <tr>
+                    <td class="one-time-code">
+                        <?php echo $bytes;?>
+                    </td>
+                    <td class="role">
+		                <?php echo $role;?>
+                    </td>
+                </tr>
+            <?php }
+        }?>
+    </table>
+<?php }
+function bella_one_time_codes(){?>
+    <div>
+        <?php if(isset($_POST['hidden'])&&strcmp($_POST['hidden'],'process')===0){
+            bella_process_one_time_codes();
+        }?>
+	    <?php if(isset($_POST['hidden'])&&strcmp($_POST['hidden'],'get')===0){
+	        bella_get_one_time_codes();
+	    }?>
+        <form action="" method="post">
+		    <?php wp_nonce_field( basename(__FILE__ ), 'bella_nonce' );?>
+            <input type="hidden" name="hidden" value="process">
+            <input type="submit" value="Get New One Time Codes"/>
+        </form>
+        <form action="" method="post">
+		    <?php wp_nonce_field( basename(__FILE__ ), 'bella_nonce' );?>
+            <input type="hidden" name="hidden" value="get">
+            <input type="submit" value="Get All Previous One Time Codes"/>
+        </form>
+    </div>
+<?php }
+
+function bella_options_page(){
+	add_options_page( 'One Time Codes', 'One Time Codes', 'manage_options', 'one-time-codes', 'bella_one_time_codes');
+}
+add_action('admin_menu','bella_options_page');
 ?>
