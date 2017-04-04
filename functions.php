@@ -334,6 +334,11 @@ function bella_user_register() {
 				//potentially add email if not deleted to admin
 				$user = new WP_User( $user_id );
 				$user->add_role( $role );
+				$creds = array();
+				$creds['user_login'] = $_POST['user_login'];
+				$creds['user_password'] = $_POST['user_password'];
+				$creds['remember'] = true;
+				wp_signon( $creds, false );
 				if(strcmp($role,'winning_the_head_game')===0) {
 					wp_redirect( get_the_permalink(486) );
 					exit;
