@@ -9,12 +9,16 @@
 		<?php the_content(); ?>
         <?php $code_valid = bella_check_one_time_code();
         if($code_valid):?>
+            <?php $form_content = get_field("form_content");
+            if($form_content):
+                echo $form_content;
+            endif;?>
             <form name="registerform" id="registerform" action="" method="post">
-                <?php if(isset($_POST['bella_errors'])):?>
+	            <?php if(isset($_POST['bella_errors'])):?>
                     <p>
-                        <?php echo $_POST['bella_errors'];?>
+			            <?php echo $_POST['bella_errors'];?>
                     </p>
-                <?php endif;?>
+	            <?php endif;?>
                 <p>
                     <label for="user_login"><?php _e('Username') ?><br />
                         <input type="text" name="user_login" id="user_login" class="input" value="" size="20" /></label>
@@ -34,7 +38,14 @@
                 <br class="clear" />
                 <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Register'); ?>" /></p>
             </form>
-        <?php else:?>
+        <?php else:
+            if(isset($_POST['bella_errors_one_time_code'])):
+                echo '<p>'.$_POST['bella_errors_one_time_code'].'</p>';
+            endif;?>
+	        <?php $form_code = get_field("form_code");
+	        if($form_code):
+		        echo $form_code;
+	        endif;?>
             <form action="" method="post">
                 <input type="text" name="one_time_code" value=""/>
                 <?php wp_nonce_field( 'page-registration.php', 'bella_check_one_time_code_nonce' );?>

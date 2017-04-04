@@ -325,29 +325,48 @@ add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 add_action( 'init', 'bella_user_register' );
 function bella_user_register() {
 	if ( bella_check_one_time_code_program() && isset( $_POST['bella_registration_nonce'] ) && wp_verify_nonce( $_POST['bella_registration_nonce'], 'page-registration.php' ) ) {
-        if (isset($_POST['user_email']) && isset($_POST['user_login']) && isset($_POST['user_password'])) {
-	        $user_id = wp_create_user( $_POST['user_login'], $_POST['user_password'], $_POST['user_email'] );
+	    if (isset($_POST['user_email']) && !empty($_POST['user_email'])
+            && isset($_POST['user_login']) && !empty($_POST['user_login'])
+            && isset($_POST['user_password']) && !empty($_POST['user_password'])) {
+		    $user = get_user_by('email',$_POST['user_email']);
+		    $user_id = null;
+		    $created_flag = 0;
+		    if($user){
+		        $user_id = $user->ID;
+            } else {
+			    $user_id = wp_create_user( $_POST['user_login'], $_POST['user_password'], $_POST['user_email'] );
+			    $created_flag = 1;
+		    }
 			if(!is_wp_error($user_id)) {
 				$role = get_post_meta( 294, $_POST['one_time_code'], true );
 				delete_post_meta( 294, 'bella_one_time_code', $_POST['one_time_code'] );
 				delete_post_meta( 294, $_POST['one_time_code'], $role );
 				//potentially add email if not deleted to admin
 				$user = new WP_User( $user_id );
-				$user->add_role( $role );
+				if(!in_array($role,$user->roles)) {
+					$user->add_role( $role );
+				}
+				if(in_array('subscriber',$user->roles) && $created_flag){
+				    $user->remove_role('subscriber');
+                }
 				$creds = array();
 				$creds['user_login'] = $_POST['user_login'];
 				$creds['user_password'] = $_POST['user_password'];
-				$creds['remember'] = true;
-				wp_signon( $creds, false );
-				if(strcmp($role,'winning_the_head_game')===0) {
+				$creds['remember'] = false;
+				$user = wp_signon( $creds, false );
+				if(is_wp_error($user)){
+				    wp_redirect(get_the_permalink(484));
+				    exit;
+                }
+				elseif(strcmp($role,'winning_the_head_game')===0) {
 					wp_redirect( get_the_permalink(486) );
 					exit;
 				}
 			} else {
-			    $_POST['bella_errors'] = "couldn't create user;";
+			    $_POST['bella_errors'] = "couldn't create user";
             }
 		} else {
-	        $_POST['bella_errors'] = "not all fields supplied; ";
+	        $_POST['bella_errors'] = "not all fields supplied";
         }
     }
 }
@@ -368,6 +387,7 @@ function bella_check_one_time_code(){
         if ( in_array( $_POST['one_time_code'], $codes ) ) {
             return true;
         }
+		$_POST['bella_errors_one_time_code'] = 'that code is not valid';
 	}
 	return false;
 }
@@ -390,12 +410,13 @@ function bella_get_one_time_codes(){
     </table>
 <?php }
 function bella_process_one_time_codes(){
-    if ( !isset( $_POST['bella_nonce'] ) || !wp_verify_nonce( $_POST['bella_nonce'], basename( __FILE__) ) ){
+    if ( !isset( $_POST['bella_nonce'] ) || !wp_verify_nonce( $_POST['bella_nonce'], basename( __FILE__) ) ||!isset($_POST['bella_num']) || empty($_POST['bella_num']) ){
         return;
-    }?>
+    }
+    $num = intval($_POST['bella_num'])>0?intval($_POST['bella_num']):1;?>
     <table>
         <tr><th>Codes</th><th>Role</th></tr>
-        <?php for ( $i = 0; $i < 1; $i ++ ) {
+        <?php for ( $i = 0; $i < $num; $i ++ ) {
             $strong = false;
 	        $meta_id_code = false;
 	        $meta_id_role = false;
@@ -429,12 +450,13 @@ function bella_one_time_codes(){?>
         <form action="" method="post">
 		    <?php wp_nonce_field( basename(__FILE__ ), 'bella_nonce' );?>
             <input type="hidden" name="hidden" value="process">
+            <input type="number" step="1" value="1" min="1" max="500" name="bella_num">
             <input type="submit" value="Get New One Time Codes"/>
         </form>
         <form action="" method="post">
 		    <?php wp_nonce_field( basename(__FILE__ ), 'bella_nonce' );?>
             <input type="hidden" name="hidden" value="get">
-            <input type="submit" value="Get All Previous One Time Codes"/>
+            <input type="submit" value="Get All Remaining One Time Codes"/>
         </form>
     </div>
 <?php }

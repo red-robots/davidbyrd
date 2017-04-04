@@ -51,6 +51,7 @@ get_header(); ?>
 										$audio_file_2 = get_field( "audio_file_2" );
 										$file             = get_field( "file" );
 										$link_text        = get_field( "monthly_audio_link_text", 484 );
+										$audio_file_2_text = get_field("audio_file_2_text");
 										$file_text        = get_field( "monthly_audio_file_text", 484 );
 										if ( ( $audio_file && $link_text ) || ( $file && $file_text ) ):?>
                                             <div class="audio-box-button-wrapper">
@@ -79,14 +80,18 @@ get_header(); ?>
                                                         </div><!--.audio-hidden-->
                                                     </div><!--.audio-box-button-->
 	                                            <?php endif;//endif for link and link text?>
-	                                            <?php if ( $audio_file_2 && $link_text ): ?>
+	                                            <?php if ( $audio_file_2 && ($link_text || $audio_file_2_text) ): ?>
                                                     <div class="audio-box-button">
                                                         <a class="audio-popup"
                                                            href="<?php echo '#audio-file-' . $audio_file_2['id']; ?>">
                                                             <img src="<?php bloginfo( 'template_url' ); ?>/images/button-arrow.jpg"
                                                                  alt="" border="0">
                                                             <div class="audio-box-button-text">
-					                                            <?php echo $link_text; ?>
+					                                            <?php if($audio_file_2_text):
+                                                                    echo $audio_file_2_text;
+                                                                else:
+                                                                    echo $link_text;
+					                                            endif;?>
                                                             </div><!--.audio-box-button-text-->
                                                         </a>
                                                         <div class="audio-hidden">
