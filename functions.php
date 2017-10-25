@@ -1,4 +1,16 @@
 <?php 
+
+require get_template_directory() . '/inc/pagination.php';
+
+add_filter( 'loop_shop_per_page', 'bella_loop_shop_per_page', 20 );
+
+function bella_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 12;
+  return $cols;
+}
+
 // Enqueueing all the java script in a no conflict mode
  function ineedmyjava() {
 	if (!is_admin()) {
@@ -255,6 +267,16 @@ function build_taxonomies() {
 			'show_admin_column' => true,
 			'public' => true,
 			'rewrite' => array( 'slug' => 'audio-category' ),
+			'_builtin' => true
+		) );
+	register_taxonomy( 'nerium', 'product',
+		array(
+			'hierarchical' => true, // true = acts like categories false = acts like tags
+			'label' => 'Nerium',
+			'query_var' => true,
+			'show_admin_column' => true,
+			'public' => true,
+			'rewrite' => array( 'slug' => 'nerium' ),
 			'_builtin' => true
 		) );
 } // End build taxonomies
