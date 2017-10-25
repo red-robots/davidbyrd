@@ -8,8 +8,8 @@
 
 <?php 
 
-$activate = $_GET['page'];
-if( $activate == 'gf_activation' ) { ?>
+
+if( isset($_GET['page']) && $_GET['page'] === 'gf_activation' ) { ?>
 <title>Activation</title>
 <?php } else { ?>
 <title><?php wp_title( '|', true, 'right' ); ?><?php bloginfo('name'); ?></title>
