@@ -1,6 +1,7 @@
 <?php 
 
 require get_template_directory() . '/inc/pagination.php';
+require get_template_directory() . '/inc/woocommerce.php';
 
 add_filter( 'loop_shop_per_page', 'bella_loop_shop_per_page', 20 );
 

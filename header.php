@@ -255,7 +255,7 @@ Menu &nbsp;&nbsp;&nbsp; <img src="<?php bloginfo('template_url'); ?>/images/down
 
     
 
-    
+<div class="clear"></div>
 
     
 
