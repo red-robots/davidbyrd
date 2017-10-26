@@ -1,1 +1,29 @@
-.product a.added_to_cart{display:none}
+#main .product-content{padding:20px}
+@media screen and (min-width:1200px){#main .product-content{padding:0}
+}#main .product-content *{box-sizing:border-box}
+#main .product-content a{color:inherit}
+#main .product-content a:hover{color:inherit}
+#main .product-content h2{color:inherit}
+#main .product-content img{max-width:100%;height:auto}
+#main .product-content>.row-2:after{content:"";display:block;clear:both}
+#main .product-content>.row-2>aside.col-1{width:100%}
+@media screen and (min-width:900px){#main .product-content>.row-2>aside.col-1{float:left;width:25%}
+}#main .product-content>.row-2>aside.col-1>.row-1.cat-box>.wrapper{background-color:#d8a958}
+#main .product-content>.row-2>aside.col-1>.row-2.popular-box>.wrapper{background-color:#d8a958}
+#main .product-content>.row-2>section.col-2{width:100%}
+@media screen and (min-width:900px){#main .product-content>.row-2>section.col-2{float:left;width:75%;padding-left:3.75%}
+}#main .product-content>.row-2>section.col-2 ul.products{margin:0;padding:0}
+#main .product-content>.row-2>section.col-2 ul.products:after{clear:both;content:'';display:block}
+#main .product-content>.row-2>section.col-2 ul.products li.product{box-shadow:1px 1px 10px black;list-style-type:none;width:100%;text-align:center}
+#main .product-content>.row-2>section.col-2 ul.products li.product:after{clear:both;content:'';display:block}
+@media screen and (min-width:900px){#main .product-content>.row-2>section.col-2 ul.products li.product{width:30%;margin:0 2.5% 5% 2.5%;float:left;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-direction:column;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-justify-content:stretch;-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch;-webkit-align-content:stretch;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+#main .product-content>.row-2>section.col-2 ul.products li.product.first{margin-left:0}
+#main .product-content>.row-2>section.col-2 ul.products li.product.last{margin-right:0}
+}#main .product-content>.row-2>section.col-2 ul.products li.product a.woocommerce-LoopProduct-link.woocommerce-loop-product__link{-webkit-box-flex:1 1 auto;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-direction:column;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-justify-content:stretch;-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch;-webkit-align-content:stretch;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+#main .product-content>.row-2>section.col-2 ul.products li.product a.woocommerce-LoopProduct-link.woocommerce-loop-product__link img{padding:10px;width:100%;display:block}
+#main .product-content>.row-2>section.col-2 ul.products li.product a.woocommerce-LoopProduct-link.woocommerce-loop-product__link h2{padding:10px;margin:0;display:block}
+#main .product-content>.row-2>section.col-2 ul.products li.product a.woocommerce-LoopProduct-link.woocommerce-loop-product__link .price{display:block;margin-top:auto;padding:10px}
+#main .product-content>.row-2>section.col-2 ul.products li.product .button_group{border-top:1px solid grey}
+#main .product-content>.row-2>section.col-2 ul.products li.product .button_group a.add_to_cart_button{padding:10px;display:block;float:left;background-color:#d8a958;margin:10px 0 10px 10px;color:white}
+#main .product-content>.row-2>section.col-2 ul.products li.product .button_group a.added_to_cart{display:none}
+#main .product-content>.row-2>section.col-2 ul.products li.product .button_group a.view_now{padding:10px;display:block;float:right;background-color:#d8a958;margin:10px 10px 10px 0;color:white}
