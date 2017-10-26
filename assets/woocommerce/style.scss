@@ -2,6 +2,9 @@ $tabwidth: 700px;
 $midwidth: 900px;
 $deskwidth: 1200px;
 $color__db-gold: #D8A958;
+$color__db-blue: #073EFC;
+$color__db-grey: #474747;
+
 @mixin flexbox(){
 display: -webkit-box;
 display: -moz-box;
@@ -41,6 +44,41 @@ align-self: $value;
   flex-direction: $value;
 }
 
+/* Pagination
+-------------------------------------------------------------- */
+.navigation {
+	width: 100%;
+	margin: 20px 0 30px 0;
+    clear: both;
+    text-align: center;
+
+	& ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	& li {
+		margin: 0;
+		display: inline;
+        list-style: none;
+        color: white;
+	}
+}
+.navigation li a {
+	color: #fff;
+	text-decoration:none;
+	background-color: $color__db-gold;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 12px;
+	padding: 0.75rem;
+}
+ 
+.navigation li a:hover,
+.navigation li.active a {
+	background-color: $color__db-grey;
+}
+
 #main {
     .product-content {
         padding: 20px;
@@ -64,33 +102,59 @@ align-self: $value;
             height: auto;
         }
         >.row-1 {
+            margin: 0 0 20px 0;
+            @media screen and (min-width: $midwidth){
+                margin: 0 0 40px 0;
+            }
             h1 {
 
             }
         }   
         >.row-2 {
-            &:after {
-                content: "";
-                display: block;
-                clear: both;
+            @include flexbox();
+            @include flexbox-direction(column);
+            @include flexbox-justify(stretch);
+            @include flexbox-align-content(stretch);
+            @include flexbox-align-items(stretch);
+            @media screen and (min-width: $midwidth){
+                @include flexbox-direction(row);
+                @include flexbox-justify(center);
+                @include flexbox-align-content(flex-start);
+                @include flexbox-align-items(flex-start);
             }
             >aside.col-1 {
                 width: 100%;
+                order: 2;
                 @media screen and (min-width: $midwidth){
-                    float: left;
-                    width: 25%;
+                    width: 20%;
+                    order: 1;
                 }
                 >.row-1.cat-box {
+                    margin: 0 0 30px 0;
                     header {
                         h2 {
-
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            font-size: 18px;
+                            line-height: 1.2;
+                            margin: 0 0 5px 0;
                         }
                     }
                     >.wrapper {
                         background-color: $color__db-gold;
+                        padding: 20px;
                         ul {
+                            margin: 0;
+                            padding: 0;
                             li {
-
+                                margin: 0 0 10px 0;
+                                list-style-type: none;
+                                &:last-child {
+                                    margin: 0;
+                                }
+                                a {
+                                    color: white;
+                                }
                             }
                         }
                     }
@@ -99,30 +163,68 @@ align-self: $value;
                 >.row-2.popular-box {
                     header {
                         h2 {
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            font-size: 18px;
+                            line-height: 1.2;
+                            margin: 0 0 5px 0;
 
                         }
                     }
                     >.wrapper {
                         background-color: $color__db-gold;
-                        .most-pop-box {
-                            a {
-                                img {
-                                    
+                        padding: 8px 8px 15px 8px;
+                        text-align: center;
+                        >.wrapper {
+                            .most-pop-box {
+                                margin: 0 0 8px 0;
+                                background-color: white;
+                                padding: 5px;
+                                &:last-child {
+                                    margin: 0;
                                 }
-                                h2 {
-
+                                a {
+                                    display: block;
+                                    &:after {
+                                        content: "";
+                                        clear: both;
+                                        display: block;
+                                    }
+                                    img {
+                                        float: left;
+                                        width: 30%;
+                                    }
+                                    h2 {
+                                        float: left;
+                                        width: 70%;
+                                        padding: 0 5px 0 10px;
+                                        font-size: 10px;
+                                        font-weight: 500;
+                                        text-align: left;
+                                    }
                                 }
                             }
+                        }
+                        >a {
+                            display: inline-block;
+                            color: white;
+                            border: 1px solid white;
+                            border-radius: 500px;
+                            text-transform: uppercase;
+                            padding: 5px 30px;
+                            margin: 15px 0 0 0;
+                            font-size: 14px;
                         }
                     }
                 }
             }
             >section.col-2 {
                 width: 100%;
+                order: 1;
                 @media screen and (min-width: $midwidth){
-                    float: left;
-                    width: 75%;
-                    padding-left: 3.75%;
+                    width: 80%;
+                    padding-left: 4%;
+                    order: 2;
                 }
                 ul.products {
                     margin: 0;
@@ -137,6 +239,7 @@ align-self: $value;
                         list-style-type: none;
                         width: 100%;
                         text-align: center;
+                        margin: 0 0 20px 0;
                         &:after {
                             clear: both;
                             content: '';
@@ -166,7 +269,7 @@ align-self: $value;
                             @include flexbox-align-content(stretch);
                             @include flexbox-align-items(stretch);
                             img {
-                                padding: 10px;
+                                padding: 10px 2px;
                                 width: 100%;
                                 display: block;
 
@@ -175,6 +278,8 @@ align-self: $value;
                                 padding: 10px;
                                 margin: 0;
                                 display: block;
+                                font-weight: 500;
+                                font-size: 18px;
                             }
                             .price {
                                 display: block;
@@ -191,6 +296,11 @@ align-self: $value;
                                 background-color: $color__db-gold;
                                 margin: 10px 0 10px 10px;
                                 color: white;
+                                text-transform: uppercase;
+                                font-size: 12px;
+                                @media screen and (min-width: $deskwidth){
+                                    padding: 10px 15px;
+                                }
 
                             }
                             a.added_to_cart {
@@ -203,6 +313,12 @@ align-self: $value;
                                 background-color: $color__db-gold;
                                 margin: 10px 10px 10px 0;
                                 color: white;
+                                text-transform: uppercase;
+                                font-size: 12px;
+                                @media screen and (min-width: $deskwidth){
+                                    padding: 10px 15px;
+                                }
+
                             }
                         }
                     }

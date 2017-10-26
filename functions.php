@@ -33,6 +33,9 @@ function bella_loop_shop_per_page( $cols ) {
 			get_bloginfo('template_directory') . '/js/custom.js',
 			array('jquery') );
 		wp_enqueue_script('custom');
+		wp_localize_script( 'custom', 'bellaajaxurl', array(
+			'url' => admin_url( 'admin-ajax.php' )
+		));
 			
 		// Lightbox/Colorbox scripts...
 		wp_register_script(

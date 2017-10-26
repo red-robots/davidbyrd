@@ -397,4 +397,55 @@ $(document).ready(function () {
      *
      ------------------------------------*/
     $('.js-blocks').matchHeight();
+
+    //function to add items to cart
+    (function () {
+        $('a.add_to_cart_button').on('click', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var id = $this.data('product_id');
+            var qty = 1;
+            jQuery.post(
+                bellaajaxurl.url,
+                {
+                    'action': 'bella_add_cart',
+                    'id': id,
+                    'qty': qty,
+                },
+                function (response) {
+                    if (Number($(response).find("cart").attr("id")) === 1) {
+                        console.log('added product');
+                        //update cart popup
+                        jQuery.post(
+                            bellaajaxurl.url,
+                            {
+                                'action': 'bella_get_cart',
+                                'data': '',
+                            },
+                            function (response) {
+                                if ($(response).find("response_data").length > 0) {
+                                    $text = $(response).find("response_data").eq(0).text();
+                                    console.log($text);
+                                }
+                            }
+                        );
+                        //update cart popup
+                        jQuery.post(
+                            bellaajaxurl.url,
+                            {
+                                'action': 'bella_get_cart_count',
+                                'data': '',
+                            },
+                            function (response) {
+                                if ($(response).find("response_data").length > 0) {
+                                    $text = $(response).find("response_data").eq(0).text();
+                                    console.log($text);
+                                }
+                            }
+                        );
+                    }
+                }
+            );
+        });
+    })();
 });

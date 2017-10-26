@@ -54,14 +54,17 @@
                 <h2>Top Sellers</h2>
             </header>
             <div class="wrapper">
-                <?php while($most_pop_query->have_posts()):$most_pop_query->the_post();?>
-                    <div class="most-pop-box">
-                        <a href="<?php echo get_the_permalink();?>">
-                            <?php woocommerce_template_loop_product_thumbnail();
-                            woocommerce_template_loop_product_title();?>
-                        </a>
-                    </div><!--.most-pop-box-->
-                <?php endwhile;?>
+                <div class="wrapper">
+                    <?php while($most_pop_query->have_posts()):$most_pop_query->the_post();?>
+                        <div class="most-pop-box">
+                            <a href="<?php echo get_the_permalink();?>">
+                                <?php woocommerce_template_loop_product_thumbnail();
+                                woocommerce_template_loop_product_title();?>
+                            </a>
+                        </div><!--.most-pop-box-->
+                    <?php endwhile;?>
+                </div><!--.wrapper-->
+                <a href="<?php echo get_the_permalink(551);?>">View All</a>
             </div><!--.wrapper-->
         </div><!--.row-2-->
         <?php wp_reset_postdata();
