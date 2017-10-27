@@ -2,15 +2,10 @@
 
 require get_template_directory() . '/inc/pagination.php';
 require get_template_directory() . '/inc/woocommerce.php';
-
-add_filter( 'loop_shop_per_page', 'bella_loop_shop_per_page', 20 );
-
-function bella_loop_shop_per_page( $cols ) {
-  // $cols contains the current number of products per page based on the value stored on Options -> Reading
-  // Return the number of products you wanna show per page.
-  $cols = 12;
-  return $cols;
-}
+/*-------------------------------------
+	Adds Options page for ACF.
+---------------------------------------*/
+if( function_exists('acf_add_options_page') ) {acf_add_options_page();}
 
 // Enqueueing all the java script in a no conflict mode
  function ineedmyjava() {

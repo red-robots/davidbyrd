@@ -27,6 +27,16 @@ if(!function_exists('bella_remove_hooks')){
     }
 }
 
+if(!function_exists('bella_loop_shop_per_page')){
+	add_filter( 'loop_shop_per_page', 'bella_loop_shop_per_page', 20 );
+	function bella_loop_shop_per_page( $cols ) {
+	// $cols contains the current number of products per page based on the value stored on Options -> Reading
+	// Return the number of products you wanna show per page.
+	$cols = 12;
+	return $cols;
+	}
+}
+
 add_action( 'wp_ajax_bella_add_cart', 'bella_ajax_add_cart' );
 add_action( 'wp_ajax_nopriv_bella_add_cart', 'bella_ajax_add_cart' );
 function bella_ajax_add_cart() {

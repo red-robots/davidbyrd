@@ -13,6 +13,7 @@ get_header(); ?>
                 <div class="row-3">                
                     <?php get_template_part("content-aside-cat");?>
                     <section class="col-2">
+						<?php get_template_part("content-aside-woo-banner");?>
                         <?php $bella_args = array(
                             'post_type'      => 'product',
                             'posts_per_page' => 12,
