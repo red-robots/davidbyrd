@@ -21,11 +21,16 @@ function bella_loop_shop_per_page( $cols ) {
 		wp_enqueue_script('jquery');
 		
 		// other scripts...
-		wp_register_script(
+		/*wp_register_script(
 			'thumbslider',
 			get_bloginfo('template_directory') . '/js/jquery.easing.1.3.js',
 			array('jquery') );
 		wp_enqueue_script('thumbslider');
+		*/
+		wp_register_script(
+			'font-awesome',
+			'https://use.fontawesome.com/8f931eabc1.js' );
+		wp_enqueue_script('font-awesome');
 		
 		// Custom Theme scripts...
 		wp_register_script(

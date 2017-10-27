@@ -6,10 +6,11 @@ get_header(); ?>
     <div id="main">
         <div class="product-content">
             <?php if(have_posts()):the_post();?>
-                <div class="row-1">
+                <?php get_template_part("content-aside-cart");?>
+                <div class="row-2">
                     <h1><?php the_title(); ?></h1>
                 </div><!--.row-1-->
-                <div class="row-2">                
+                <div class="row-3">                
                     <?php get_template_part("content-aside-cat");?>
                     <section class="col-2">
                         <?php $bella_args = array(

@@ -33,7 +33,8 @@ get_header( 'shop' ); ?>
 					 */
 					//do_action( 'woocommerce_before_main_content' );
 				?>
-				<div class="row-1">
+				<?php get_template_part("content-aside-cart");?>
+				<div class="row-2">
 					<header class="woocommerce-products-header">
 
 						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -54,7 +55,7 @@ get_header( 'shop' ); ?>
 
 					</header>
 				</div><!--.row-1-->
-				<div class="row-2">
+				<div class="row-3">
                     <?php get_template_part("content-aside-cat");?>
                     <section class="col-2">
 			
@@ -71,7 +72,7 @@ get_header( 'shop' ); ?>
 								 * @hooked woocommerce_result_count - 20
 								 * @hooked woocommerce_catalog_ordering - 30
 								 */
-								//do_action( 'woocommerce_before_shop_loop' );
+								do_action( 'woocommerce_before_shop_loop' );
 							?>
 							<?php
 								add_filter( 'loop_shop_columns', 'return_3' );
@@ -107,7 +108,8 @@ get_header( 'shop' ); ?>
 								 *
 								 * @hooked woocommerce_pagination - 10
 								 */
-								do_action( 'woocommerce_after_shop_loop' );
+								//do_action( 'woocommerce_after_shop_loop' );
+								pagi_posts_nav();
 							?>
 
 						<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>

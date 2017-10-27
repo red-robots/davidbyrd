@@ -101,7 +101,166 @@ align-self: $value;
             max-width: 100%;
             height: auto;
         }
-        >.row-1 {
+        >.row-1.cart-bar {
+            text-align: center;
+            margin: 0 0 10px 0;
+            &:after {
+                clear: both;
+                content: "";
+                display: block;
+            }
+            >.wrapper {
+                position: relative;
+                display: inline-block;
+                @media screen and (min-width: $midwidth){
+                    float: right;
+                }
+                &:after {
+                    clear: both;
+                    content: "";
+                    display: block;
+                }
+                >a {
+                    float: left;
+                    display: block;
+                    margin: 0 20px 0 0;
+                    i {
+                        color: $color__db-gold;
+                        font-size: 28px;
+                        @media screen and (min-width: $midwidth){
+                            font-size: 35px;
+                        }
+                    }
+                }
+                >.wrapper {
+                    float: left;
+                    &:after {
+                        clear: both;
+                        content: "";
+                        display: block;
+                    }
+                    &:hover {
+                        .popup-cart {
+                            display: block;
+                        }
+                    }
+                    .price-box {    
+                        color: $color__db-gold;
+                        border: 1px solid $color__db-gold;
+                        font-size: 18px;
+                        float: left;
+                        padding: 5px 10px;
+                        line-height: 1;
+                        @media screen and (min-width: $midwidth){
+                            font-size: 25px;
+                        }
+
+                    }
+                    .quantity-box {
+                        background-color: $color__db-gold;
+                        border: 1px solid $color__db-gold;
+                        color: white;
+                        font-size: 18px;
+                        float: left;
+                        padding: 5px 20px;
+                        line-height: 1;
+                        @media screen and (min-width: $midwidth){
+                            font-size: 25px;
+                        }
+                    }
+                    .popup-cart {
+                        position: absolute;
+                        top: calc(100% - 1px);
+                        right: 0;
+                        width: 200px;
+                        display: none;
+                        background-color: white;
+                        border: 1px solid $color__db-gold;
+                        padding: 10px;
+                        @media screen and (min-width: $midwidth){
+                            width: 150%;
+                            padding: 20px;
+                            max-width: 400px;
+                            min-width: 300px;
+                        }
+                        &:after {
+                            clear: both;
+                            content: "";
+                            display: block;
+                        }
+                        .product-box {
+                            margin: 0 0 20px 0;
+                            .product-info {
+                                &:after {
+                                    clear: both;
+                                    content: "";
+                                    display: block;
+                                }
+                                .product-name {
+                                    text-align: left;
+                                    @media screen and (min-width: $midwidth){
+                                        float: left;
+                                        width: 70%;
+                                    }
+                                }
+                                .product-quantity {
+                                    text-align: left;
+                                    @media screen and (min-width: $midwidth){
+                                        float: left;
+                                        width: calc(30% - 10px);
+                                        margin: 0 0 0 10px;
+                                        text-align: right;
+                                    }
+                                }
+                            }
+                        }
+                        .totals-checkout {
+                            margin: 30px 0 0 0;
+                            border-top: 2px solid $color__db-grey;
+                            text-align: center;
+                            &:after {
+                                clear: both;
+                                content: "";
+                                display: block;
+                            }
+                            .subtotal {
+                                padding: 10px 0;
+                                text-align: right;
+                            }
+                            .cart.button {
+                                background-color: $color__db-gold;
+                                color: white;
+                                padding: 10px;
+                                text-transform: uppercase;
+                                font-size: 10px;
+                                display: block;
+                                @media screen and (min-width: $midwidth){
+                                    padding: 10px 15px;
+                                    float: right;
+                                    margin: 10px 10px 0 10px;
+                                }
+                            }
+                            .checkout.button {
+                                background-color: $color__db-gold;
+                                color: white;
+                                text-transform: uppercase;
+                                font-size: 10px;
+                                padding: 10px;
+                                display: block;
+                                margin: 0 0 10px 0;
+                                @media screen and (min-width: $midwidth){
+                                    padding: 10px 15px;
+                                    float: right;
+                                    margin: 10px 0 0 10px;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        >.row-2 {
             margin: 0 0 20px 0;
             @media screen and (min-width: $midwidth){
                 margin: 0 0 40px 0;
@@ -110,7 +269,7 @@ align-self: $value;
 
             }
         }   
-        >.row-2 {
+        >.row-3 {
             @include flexbox();
             @include flexbox-direction(column);
             @include flexbox-justify(stretch);
