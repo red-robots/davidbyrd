@@ -4,6 +4,7 @@ $deskwidth: 1200px;
 $color__db-gold: #D8A958;
 $color__db-blue: #073EFC;
 $color__db-grey: #474747;
+$color__db-purple: #554b94;
 
 @mixin flexbox(){
 display: -webkit-box;
@@ -77,6 +78,15 @@ align-self: $value;
 .navigation li a:hover,
 .navigation li.active a {
 	background-color: $color__db-grey;
+}
+
+.copy >*:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.copy >*:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 #main {
@@ -295,7 +305,7 @@ align-self: $value;
                             font-weight: 500;
                             text-transform: uppercase;
                             font-size: 18px;
-                            line-height: 1.2;
+                            line-height: 1.6;
                             margin: 0 0 5px 0;
                         }
                     }
@@ -325,7 +335,7 @@ align-self: $value;
                             font-weight: 500;
                             text-transform: uppercase;
                             font-size: 18px;
-                            line-height: 1.2;
+                            line-height: 1.6;
                             margin: 0 0 5px 0;
 
                         }
@@ -384,6 +394,54 @@ align-self: $value;
                     width: 80%;
                     padding-left: 4%;
                     order: 2;
+                }
+                aside.banner {
+                    background-color: $color__db-purple;
+                    padding: 10px 60px 10px 20px;
+                    margin: 0 0 20px 0;
+                    @media screen and (min-width: $midwidth){
+                        display: table;
+                        margin: 0 0 4% 0;
+                    }
+                    >.col-1 {
+                        @media screen and (min-width: $midwidth){
+                            width: 65%;
+                            display: table-cell;
+                            padding: 0 5% 0 0;
+                            vertical-align: middle;
+                        }
+                        header {
+                            h2 {
+                                color: white;
+                                text-transform: uppercase;
+                                font-weight: 500;
+                                margin: 0;
+                                font-size: 20px;
+                                line-height: 1.6;
+                            }
+                        }
+                        .copy {
+
+                            color: white;
+                        }
+                    }
+                    >.col-2 {
+                        margin: 10px 0 0 0;
+                        @media screen and (min-width: $midwidth){
+                            text-align: right;
+                            margin: 0;
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+                        a {
+                            padding: 5px 15px;
+                            display: inline-block;
+                            color: white;
+                            border: 1px solid white;
+                            text-transform: uppercase;
+                            border-radius: 500px;
+                        }
+                    }
                 }
                 ul.products {
                     margin: 0;
