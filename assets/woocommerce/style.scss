@@ -90,7 +90,7 @@ align-self: $value;
 }
 
 #main {
-    .product-content {
+    .product-content, .single-product-content {
         padding: 20px;
         @media screen and (min-width: $deskwidth){
             padding: 0;
@@ -537,6 +537,25 @@ align-self: $value;
                                 }
 
                             }
+                        }
+                    }
+                }
+                .product.single {
+                    &:after {
+                        clear: both;
+                        content: "";
+                        display: block;
+                    }
+                    >.col-1 {
+                        @media screen and (min-width: $midwidth){
+                            float: left;
+                            width: 50%;
+                        }
+                    }
+                    >.col-2 {
+                        @media screen and (min-width: $midwidth){
+                            float: left;
+                            width: 50%;
                         }
                     }
                 }

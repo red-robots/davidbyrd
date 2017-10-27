@@ -22,10 +22,14 @@ if(!function_exists('bella_add_button_group_ending_tag')){
 if(!function_exists('bella_remove_hooks')){
     add_action('init','bella_remove_hooks',10);
     function bella_remove_hooks(){
+		remove_action('woocommerce_after_single_product_summary','woocommerce_output_related_products',20);
 		remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
 		remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
+		remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
     }
 }
+
+add_action('woocommerce_after_single_product','woocommerce_output_related_products',20);
 
 if(!function_exists('bella_loop_shop_per_page')){
 	add_filter( 'loop_shop_per_page', 'bella_loop_shop_per_page', 20 );

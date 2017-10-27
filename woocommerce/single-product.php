@@ -21,41 +21,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+	<div id="main">
+		<div class="single-product-content">
+			<?php if ( have_posts() ) : the_post(); ?>
+				<?php get_template_part("content-aside-cart");?>
+				<div class="row-2">
+					<h1><?php the_title(); ?></h1>
+				</div><!--.row-2-->
+				<div class="row-3">                
+					<?php get_template_part("content-aside-cat");?>
+					<section class="col-2">
+						<?php
+							/**
+							 * woocommerce_before_main_content hook.
+							 *
+							 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+							 * @hooked woocommerce_breadcrumb - 20
+							 */
+							do_action( 'woocommerce_before_main_content' );
+						?>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+							
 
-		<?php while ( have_posts() ) : the_post(); ?>
+								<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+							
 
-		<?php endwhile; // end of the loop. ?>
+						<?php
+							/**
+							 * woocommerce_after_main_content hook.
+							 *
+							 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+							 */
+							do_action( 'woocommerce_after_main_content' );
+						?>
 
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
-
+						<?php
+							/**
+							 * woocommerce_sidebar hook.
+							 *
+							 * @hooked woocommerce_get_sidebar - 10
+							 */
+							//do_action( 'woocommerce_sidebar' );
+						?>
+					</section><!--.col-2-->
+				</div><!--.row-3-->
+			<?php endif; // end of the loop. ?>
+        </div><!-- .product-content -->
+    </div><!--#main-->
 <?php get_footer( 'shop' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

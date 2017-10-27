@@ -54,7 +54,7 @@ get_header( 'shop' ); ?>
 						?>
 
 					</header>
-				</div><!--.row-1-->
+				</div><!--.row-2-->
 				<div class="row-3">
                     <?php get_template_part("content-aside-cat");?>
                     <section class="col-2">
@@ -126,7 +126,7 @@ get_header( 'shop' ); ?>
 
 						<?php endif; ?>
 					</section><!--.col-2-->
-				</div><!--.row-2-->
+				</div><!--.row-3-->
 
 			<?php
 				/**
