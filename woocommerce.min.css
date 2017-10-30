@@ -1,12 +1,12 @@
-.navigation{width:100%;margin:20px 0 30px 0;clear:both;text-align:center}
+.navigation{width:100%;margin:20px 0 0 0;clear:both;text-align:center}
 .navigation ul{margin:0;padding:0}
-.navigation li{margin:0;display:inline;list-style:none;color:white}
-.navigation li a{color:#fff;text-decoration:none;background-color:#d8a958;border-radius:3px;cursor:pointer;padding:12px;padding:.75rem}
+.navigation li{margin:0;display:inline-block;list-style:none;color:white}
+.navigation li a{display:block;color:#fff;text-decoration:none;background-color:#d8a958;border-radius:3px;cursor:pointer;padding:12px}
 .navigation li a:hover,.navigation li.active a{background-color:#474747}
 .copy>*:first-child{margin-top:0;padding-top:0}
 .copy>*:last-child{margin-bottom:0;padding-bottom:0}
 #main .product-content,#main .single-product-content{padding:20px}
-@media screen and (min-width:1200px){#main .product-content,#main .single-product-content{padding:0}
+@media screen and (min-width:1200px){#main .product-content,#main .single-product-content{padding:0 0 20px 0}
 }#main .product-content *,#main .single-product-content *{box-sizing:border-box}
 #main .product-content a,#main .single-product-content a{color:inherit}
 #main .product-content a:hover,#main .single-product-content a:hover{color:inherit}
@@ -93,8 +93,9 @@
 #main .product-content>.row-3>section.col-2 ul.products li.product .button_group a.view_now,#main .single-product-content>.row-3>section.col-2 ul.products li.product .button_group a.view_now{padding:10px;display:block;float:right;background-color:#d8a958;margin:10px 10px 10px 0;color:white;text-transform:uppercase;font-size:12px}
 @media screen and (min-width:1200px){#main .product-content>.row-3>section.col-2 ul.products li.product .button_group a.view_now,#main .single-product-content>.row-3>section.col-2 ul.products li.product .button_group a.view_now{padding:10px 15px}
 }#main .product-content>.row-3>section.col-2 .product.single:after,#main .single-product-content>.row-3>section.col-2 .product.single:after{clear:both;content:"";display:block}
-@media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .product.single>.col-1,#main .single-product-content>.row-3>section.col-2 .product.single>.col-1{float:left;width:50%}
-}@media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .product.single>.col-2,#main .single-product-content>.row-3>section.col-2 .product.single>.col-2{float:left;width:50%}
+@media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .product.single>.col-1,#main .single-product-content>.row-3>section.col-2 .product.single>.col-1{float:left;width:60%;padding:0 8% 0 0}
+}#main .product-content>.row-3>section.col-2 .product.single>.col-1 .woocommerce-product-gallery figure,#main .single-product-content>.row-3>section.col-2 .product.single>.col-1 .woocommerce-product-gallery figure{width:100%;margin:0}
+@media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .product.single>.col-2,#main .single-product-content>.row-3>section.col-2 .product.single>.col-2{float:left;width:40%}
 }.flex-container a:hover,.flex-slider a:hover,.flex-container a:focus,.flex-slider a:focus{outline:0}
 .slides,.slides>li,.flex-control-nav,.flex-direction-nav{margin:0;padding:0;list-style:none}
 .flex-pauseplay span{text-transform:capitalize}
@@ -105,7 +106,7 @@
 html[xmlns] #flexslider .slides{display:block}
 * html #flexslider .slides{height:1%}
 .no-js #flexslider .slides>li:first-child{display:block}
-#flexslider{margin:0 0 60px;background:#fff;border:4px solid #fff;position:relative;zoom:1;border-radius:4px;-o-box-shadow:"" 0 1px 4px rgba(0,0,0,0.2);box-shadow:"" 0 1px 4px rgba(0,0,0,0.2)}
+#flexslider{margin:0 0 20px;background:#fff;border:4px solid #fff;position:relative;zoom:1;border-radius:4px;-o-box-shadow:"" 0 1px 4px rgba(0,0,0,0.2);box-shadow:"" 0 1px 4px rgba(0,0,0,0.2)}
 #flexslider .slides{zoom:1}
 #flexslider .slides img{height:auto}
 .flex-viewport{max-height:2000px;-webkit-transition:all 1s ease;transition:all 1s ease}
