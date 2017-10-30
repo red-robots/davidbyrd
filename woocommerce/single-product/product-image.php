@@ -29,14 +29,14 @@ $placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
 $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
 	'woocommerce-product-gallery',
 	'woocommerce-product-gallery--' . $placeholder,
-	'woocommerce-product-gallery--columns-' . absint( $columns ),
+	//'woocommerce-product-gallery--columns-' . absint( $columns ),
 	'images',
 ) );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
 	<figure class="woocommerce-product-gallery__wrapper">
 		<?php
-		$attributes = array(
+		/*$attributes = array(
 			'title'                   => get_post_field( 'post_title', $post_thumbnail_id ),
 			'data-caption'            => get_post_field( 'post_excerpt', $post_thumbnail_id ),
 			'data-src'                => $full_size_image[0],
@@ -46,9 +46,9 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 		);
 
 		if ( has_post_thumbnail() ) {
-			$html  = '<div data-thumb="' . get_the_post_thumbnail_url( $post->ID, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_size_image[0] ) . '">';
+			$html  = '<div data-thumb="' . get_the_post_thumbnail_url( $post->ID, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image">';
 			$html .= get_the_post_thumbnail( $post->ID, 'shop_single', $attributes );
-			$html .= '</a></div>';
+			$html .= '</div>';
 		} else {
 			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
 			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
@@ -56,7 +56,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 		}
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id( $post->ID ) );
-
+		*/
 		do_action( 'woocommerce_product_thumbnails' );
 		?>
 	</figure>

@@ -23,8 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $product;
 
 $attachment_ids = $product->get_gallery_image_ids();
-
+array_unshift($attachment_ids,get_post_thumbnail_id());
 if ( $attachment_ids && has_post_thumbnail() ) {
+	echo '<div id="flexslider"><ul class="slides">';
 	foreach ( $attachment_ids as $attachment_id ) {
 		$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
 		$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
@@ -37,10 +38,31 @@ if ( $attachment_ids && has_post_thumbnail() ) {
 			'data-large_image_height' => $full_size_image[2],
 		);
 
-		$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_size_image[0] ) . '">';
+		$html = '<li data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image">';
 		$html .= wp_get_attachment_image( $attachment_id, 'shop_single', false, $attributes );
- 		$html .= '</a></div>';
+ 		$html .= '</li>';
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id );
 	}
+	echo '</ul></div><!--#flexslider-->';
+	echo '<div id="carousel"><ul class="slides">';
+	foreach ( $attachment_ids as $attachment_id ) {
+		$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
+		$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
+		$attributes      = array(
+			'title'                   => get_post_field( 'post_title', $attachment_id ),
+			'data-caption'            => get_post_field( 'post_excerpt', $attachment_id ),
+			'data-src'                => $full_size_image[0],
+			'data-large_image'        => $full_size_image[0],
+			'data-large_image_width'  => $full_size_image[1],
+			'data-large_image_height' => $full_size_image[2],
+		);
+
+		$html = '<li data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image">';
+		$html .= wp_get_attachment_image( $attachment_id, 'shop_single', false, $attributes );
+ 		$html .= '</li>';
+
+		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id );
+	}
+	echo '</ul></div><!--#carousel-->';
 }

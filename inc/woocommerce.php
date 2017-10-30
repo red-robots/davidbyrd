@@ -28,8 +28,56 @@ if(!function_exists('bella_remove_hooks')){
 		remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
     }
 }
-
 add_action('woocommerce_after_single_product','woocommerce_output_related_products',20);
+
+
+/**
+ * Each tab is an array containing title, callback and priority.
+ * */
+if(!function_exists('bella_add_tabs')&&!function_exists('bella_whats_tab')&&!function_exists('bella_reviews_tab')){
+    add_filter('woocommerce_product_tabs','bella_add_tabs');
+    function bella_add_tabs($array){
+		if(!isset($array['bella_reviews'])&&!isset($array['bella_whats'])):
+			$array['bella_reviews'] = array(
+				'title'=>'Reviews',
+				'priority'=>15,
+				'callback'=>'bella_reviews_tab'
+			);
+			$array['bella_whats'] = array(
+				'title'=>'What\'s In The Box?',
+				'priority'=>15,
+				'callback'=>'bella_whats_tab'
+			);
+		endif;
+		return $array;
+	}
+	function bella_whats_tab(){
+		$whats = get_field('whats_');
+		if($whats):
+			echo $whats;
+		endif;
+	}
+	function bella_reviews_tab(){
+		$args = array(
+			'post_id'=>get_the_ID(),
+			'status'=>'approve',
+			'orderby'=>'date',
+		);
+		 // The Query
+		 $comments_query = new WP_Comment_Query;
+		 $comments = $comments_query->query( $args );
+		 
+		 // Comment Loop
+		 if ( $comments ) {
+			 foreach ( $comments as $comment ) {
+				 echo '<p>' . $comment->comment_content . '</p>';
+			 }
+		 } else {
+			 echo 'No comments found.';
+		 }
+	}
+}
+
 
 if(!function_exists('bella_loop_shop_per_page')){
 	add_filter( 'loop_shop_per_page', 'bella_loop_shop_per_page', 20 );

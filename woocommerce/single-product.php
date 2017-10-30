@@ -31,6 +31,7 @@ get_header( 'shop' ); ?>
 				<div class="row-3">                
 					<?php get_template_part("content-aside-cat");?>
 					<section class="col-2">
+						<?php get_template_part("content-aside-woo-banner");?>
 						<?php
 							/**
 							 * woocommerce_before_main_content hook.
