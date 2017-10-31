@@ -13,7 +13,7 @@ get_header(); ?>
                 <div class="row-3">                
                     <?php get_template_part("content-aside-cat");?>
                     <section class="col-2">
-						<?php get_template_part("content-aside-woo-banner");?>
+                        <?php get_template_part("content-aside-woo-banner");?>
                         <?php $bella_args = array(
                             'post_type'      => 'product',
                             'posts_per_page' => 12,
@@ -34,6 +34,21 @@ get_header(); ?>
                                 )
                             )
                         );
+                        if(isset($_POST['search'])):
+                            $prepare_args = array();
+                            $prepare_string = "SELECT ID, post_title FROM $wpdb->posts WHERE post_title LIKE '%%%s%%' AND post_type=%s";
+                            array_unshift($prepare_args,'product');
+                            array_unshift($prepare_args,$_POST['search']);
+                            array_unshift($prepare_args,$prepare_string);
+                            $results = $wpdb->get_results(  call_user_func_array(array($wpdb, "prepare"),$prepare_args));
+                            $in = array(-1);
+                            if($results):     
+                                foreach($results as $result):
+                                    $in[] = $result->ID;
+                                endforeach;
+                            endif;
+                            $bella_args['post__in'] = $in;
+                        endif;
                         $bella_query = new WP_Query( $bella_args ); ?>
                         <?php if ( $bella_query->have_posts() ) : ?>
                             <?php

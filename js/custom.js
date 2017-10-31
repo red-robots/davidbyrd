@@ -1607,7 +1607,9 @@ $(document).ready(function () {
         slideshow: false,
         itemWidth: 50,
         itemMargin: 5,
-        asNavFor: '#flexslider'
+        asNavFor: '#flexslider',
+				prevText: '<i class="fa fa-chevron-circle-left"></i>',
+				nextText: '<i class="fa fa-chevron-circle-right"></i>',
     });
 
     $('#flexslider').flexslider({
@@ -1616,6 +1618,8 @@ $(document).ready(function () {
         animationLoop: false,
         slideshow: false,
         smoothHeight: true,
-        sync: "#carousel"
+        sync: "#carousel",
+				prevText: '<i class="fa fa-chevron-circle-left"></i>',
+				nextText: '<i class="fa fa-chevron-circle-right"></i>',
     });
 });
