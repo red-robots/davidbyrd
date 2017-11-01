@@ -5,6 +5,7 @@
 .navigation li a:hover,.navigation li.active a{background-color:#474747}
 .copy>*:first-child{margin-top:0;padding-top:0}
 .copy>*:last-child{margin-bottom:0;padding-bottom:0}
+.woocommerce .post{width:100%}
 .woocommerce-checkout .woocommerce .woocommerce-info{border-top-color:#d8a958}
 .woocommerce-checkout .woocommerce .woocommerce-info:before{color:#d8a958}
 .woocommerce-checkout .woocommerce input.button.alt{background-color:#d8a958;border-radius:0}
