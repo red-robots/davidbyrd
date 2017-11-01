@@ -44,6 +44,16 @@ add_action('woocommerce_single_product_summary','woocommerce_template_single_pri
 add_action('woocommerce_after_single_product','woocommerce_output_related_products',20);
 
 /**
+ * Changes the redirect URL for the Return To Shop button in the cart.
+ * Thanks https://nicola.blog/2015/07/20/change-the-return-to-shop-button-url-in-the-cart-page/
+ * @return string
+ */
+function wc_empty_cart_redirect_url() {
+	return get_the_permalink(551);
+}
+add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );
+
+/**
  * Each tab is an array containing title, callback and priority.
  * */
 if(!function_exists('bella_add_tabs')&&!function_exists('bella_whats_tab')&&!function_exists('bella_reviews_tab')){

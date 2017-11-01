@@ -104,7 +104,7 @@ else { document.getElementById(d).style.display = "none"; }
 
 
 
-<body>
+<body <?php body_class(); ?>>
 
 
 

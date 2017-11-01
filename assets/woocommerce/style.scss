@@ -87,12 +87,52 @@ align-self: $value;
     margin-bottom: 0;
     padding-bottom: 0;
 }
-
+.woocommerce-checkout {
+    .woocommerce {
+        .woocommerce-info {
+            border-top-color: $color__db-gold;
+            &:before {
+                color: $color__db-gold;
+            }
+        }
+        input.button.alt {
+            background-color: $color__db-gold;
+            border-radius: 0;
+        }
+    }
+}
+.woocommerce-cart {
+    .woocommerce-message {
+        border-top-color: $color__db-gold;
+        &:before {
+            color: $color__db-gold;
+        }
+    }
+    .woocommerce {
+        form.woocommerce-cart-form {
+            a {
+                color: inherit;
+            }
+        }
+        .cart-collaterals {
+            a, h2 {
+                color: inherit;
+            }
+            a.button.alt {
+                background-color: $color__db-gold;
+                border-radius: 0;
+                &:hover {
+                    background-color: $color__db-gold;
+                }
+            }
+        }
+    }
+}
 #main {
     .product-content, .single-product-content {
         padding: 20px;
         @media screen and (min-width: $deskwidth){
-            padding: 0 0 20px 0;
+            padding: 0 0 60px 0;
         }
         * {
             box-sizing: border-box;
@@ -601,12 +641,17 @@ align-self: $value;
                             padding: 0 8% 0 0;
                         }
                         .woocommerce-product-gallery {
+                            float: none;
+                            width: 100%;
                             figure {
                                 width: 100%;
                                 margin: 0;
                                 #carousel {
                                     li.woocommerce-product-gallery__image {
-                                        margin: 0 5px;
+                                        margin: 0 5px 0 0;
+                                        &:last-child {
+                                            margin: 0;
+                                        }
                                     }
                                 }
                             }
@@ -619,6 +664,8 @@ align-self: $value;
                             width: 40%;
                         }
                         .summary.entry-summary {
+                            float: none;
+                            width: 100%;
                             h1 {
                                 font-weight: 500;
                                 font-family: 'Lato', sans-serif;
@@ -691,8 +738,9 @@ align-self: $value;
                                         }
                                     }
                                 }
-                                button[type=submit] {
-                                    margin: 5px 0 10px 0;
+                                button[type=submit].button {
+                                    margin: 5px 0 10px 10px;
+                                    border-radius: 0;
                                     padding: 10px;
                                     font-size: 12px;
                                     line-height: 1.2;
@@ -726,20 +774,39 @@ align-self: $value;
                                     display: block;
                                     content: "";
                                 }
+                                &:before {
+                                    display: none;
+                                }
                                 li[role=tab] {
                                     list-style-type: none;
                                     float: left;
                                     color: $color__db-purple;
+                                    padding: 0;
+                                    border: none;
+                                    font-size: 16px;
+                                    background-color: transparent;
+                                    margin: 0;
+                                    &:before {
+                                        display: none;
+                                    }
                                     &:after {
                                         content: "|";
                                         display: block;
                                         float: right;
                                         margin: 0 4px 0 5px;
+                                        right: unset;
+                                        bottom: unset;
+                                        width: auto;
+                                        height: auto;
+                                        border: none;
+                                        box-shadow: none;
+                                        position: static;
                                     }
                                     &:last-child:after {
                                         display: none;
                                     }
                                     a {
+                                        padding: 0;
                                         text-transform: uppercase;
                                         font-size: 14px;
                                         @media screen and (min-width: $midwidth) {
