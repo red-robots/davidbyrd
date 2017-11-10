@@ -53,7 +53,7 @@
 <div id="footer2-left">
 <div id="footer-content1">
 <div class="social-icon"><a href="https://www.youtube.com/user/davidbyrdconsulting/" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/youtube.jpg" alt="" border="0"></a></div>
-<div class="social-icon"><a href="http://www.linkedin.com/in/davidbyrdconsulting" target="_blank"><img src="http://davidbyrdconsulting.com/bw/wp-content/uploads/2014/10/linkedin.jpg" alt="" border="0"></a></div>
+<div class="social-icon"><a href="http://www.linkedin.com/in/davidbyrdconsulting" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/linkedin.jpg" alt="" border="0"></a></div>
 <div class="social-icon"><a href="https://www.facebook.com/DavidByrdConsulting" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/facebook.jpg" alt="" border="0"></a></div>
 <div class="social-icon"><a href="https://twitter.com/davidbyrdtweets" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/twitter.jpg" alt="" border="0"></a></div>
 </div>

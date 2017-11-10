@@ -142,7 +142,7 @@ else { document.getElementById(d).style.display = "none"; }
 
 <div class="social-icon"><a href="https://www.youtube.com/user/davidbyrdconsulting/" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/youtube.jpg" alt="" border="0"></a></div>
 
-<div class="social-icon"><a href="https://www.linkedin.com/company/david-byrd-consulting" target="_blank"><img src="http://davidbyrdconsulting.com/bw/wp-content/uploads/2014/10/linkedin.jpg" alt="" border="0"></a></div>
+<div class="social-icon"><a href="https://www.linkedin.com/company/david-byrd-consulting" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/linkedin.jpg" alt="" border="0"></a></div>
 
 <div class="social-icon"><a href="https://www.facebook.com/DavidByrdConsulting" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/facebook.jpg" alt="" border="0"></a></div>
 
