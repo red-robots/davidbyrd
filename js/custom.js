@@ -1623,8 +1623,8 @@ $(document).ready(function () {
 				nextText: '<i class="fa fa-chevron-circle-right"></i>',
     });
 
-    $('.row-1.cart-bar >.wrapper >i.search').click(function(){
-      var $form = $('.row-1.cart-bar >.wrapper >form.bella-search');
+    $('.row-1.cart-bar >.wrapper >.col-1 >i.search').click(function(){
+      var $form = $('.row-1.cart-bar >.wrapper >.col-1 >form.bella-search');
       $form.toggle(200);
     });
 });

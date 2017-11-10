@@ -172,181 +172,218 @@ align-self: $value;
                     content: "";
                     display: block;
                 }
-                >form.bella-search {
-                    float: left;
-                    display: none;
-                    input {
-                        border: 1px solid $color__db-gold;
-                        float: left;
-                        font-size: 16px;
-                        padding: 10px;
-                        margin: 0 10px 0 0;
-                    }
-                    button {
-                        cursor: pointer;
-                        width: 34px;
-                        display: block;
-                        text-shadow: none;
-                        box-shadow: none;
-                        background-color: $color__db-gold;
-                        border: 1px solid $color__db-gold;
-                        color: white;
-                        float: right;
-                        font-size: 23px;
-                        padding: 8px 6px;
-                        margin: 0 0 0 5px;
-                        &:hover {
-                            color: $color__db-gold;
-                            background-color: white;
-                        }
-                        i {
-                            display: block;
-                        }
-                    }
-                }
-                >i.search {
-                    float: left;
-                    color: $color__db-gold;
-                    font-size: 28px;
-                    margin: 0 10px 0 0;
+                >.col-1 {
+                    display: inline-block;
                     @media screen and (min-width: $midwidth){
-                        font-size: 35px;
+                        float: left;
                     }
-                }
-                >a {
-                    float: left;
-                    display: block;
-                    margin: 0 20px 0 0;
-                    i {
-                        color: $color__db-gold;
-                        font-size: 28px;
-                        @media screen and (min-width: $midwidth){
-                            font-size: 35px;
-                        }
-                    }
-                }
-                >.wrapper {
-                    float: left;
                     &:after {
                         clear: both;
                         content: "";
                         display: block;
                     }
-                    &:hover {
-                        .popup-cart {
-                            display: block;
-                        }
-                    }
-                    .price-box {    
-                        color: $color__db-gold;
-                        border: 1px solid $color__db-gold;
-                        font-size: 18px;
-                        float: left;
-                        padding: 5px 10px;
-                        line-height: 1;
-                        @media screen and (min-width: $midwidth){
-                            font-size: 25px;
-                        }
-
-                    }
-                    .quantity-box {
-                        background-color: $color__db-gold;
-                        border: 1px solid $color__db-gold;
-                        color: white;
-                        font-size: 18px;
-                        float: left;
-                        padding: 5px 20px;
-                        line-height: 1;
-                        @media screen and (min-width: $midwidth){
-                            font-size: 25px;
-                        }
-                    }
-                    .popup-cart {
-                        position: absolute;
-                        top: calc(100% - 1px);
-                        right: 0;
-                        width: 200px;
+                    >form.bella-search {
                         display: none;
-                        background-color: white;
-                        border: 1px solid $color__db-gold;
-                        padding: 10px;
-                        @media screen and (min-width: $midwidth){
-                            width: 150%;
-                            padding: 20px;
-                            max-width: 400px;
-                            min-width: 300px;
+                        float: left;
+                        input {
+                            border: 1px solid $color__db-gold;
+                            float: left;
+                            font-size: 16px;
+                            padding: 10px;
+                            margin: 0 10px 0 0;
+                            width: 150px;
+                            @media screen and (min-width: $midwidth){
+                                width: auto;
+                            }
                         }
+                        button {
+                            cursor: pointer;
+                            width: 34px;
+                            display: block;
+                            text-shadow: none;
+                            box-shadow: none;
+                            background-color: $color__db-gold;
+                            border: 1px solid $color__db-gold;
+                            color: white;
+                            float: right;
+                            font-size: 23px;
+                            padding: 8px 6px;
+                            margin: 0 0 0 5px;
+                            &:hover {
+                                color: $color__db-gold;
+                                background-color: white;
+                            }
+                            i {
+                                display: block;
+                            }
+                        }
+                    }
+                    >i.search {
+                        float: left;
+                        color: $color__db-gold;
+                        font-size: 28px;
+                        margin: 0 10px 0 0;
+                        @media screen and (min-width: $midwidth){
+                            font-size: 35px;
+                            float: left;
+                        }
+                    }
+                }
+                .break {
+                    display: block;
+                    content: "";
+                    clear: both;
+                    @media screen and (min-width: $midwidth){
+                        display: none;
+                    }
+                }
+                >.col-2 {
+                    display: inline-block;
+                    margin: 10px 0 0 0;
+                    @media screen and (min-width: $midwidth){
+                        float: left;
+                        margin: 0;
+                    }
+                    &:after {
+                        clear: both;
+                        content: "";
+                        display: block;
+                    }
+                    >a {
+                        float: left;
+                        display: block;
+                        margin: 0 20px 0 0;
+                        i {
+                            color: $color__db-gold;
+                            font-size: 28px;
+                            @media screen and (min-width: $midwidth){
+                                font-size: 35px;
+                            }
+                        }
+                    }
+                    >.wrapper {
+                        float: left;
                         &:after {
                             clear: both;
                             content: "";
                             display: block;
                         }
-                        .product-box {
-                            margin: 0 0 20px 0;
-                            .product-info {
-                                &:after {
-                                    clear: both;
-                                    content: "";
-                                    display: block;
-                                }
-                                .product-name {
-                                    text-align: left;
-                                    @media screen and (min-width: $midwidth){
-                                        float: left;
-                                        width: 70%;
-                                    }
-                                }
-                                .product-quantity {
-                                    text-align: left;
-                                    @media screen and (min-width: $midwidth){
-                                        float: left;
-                                        width: calc(30% - 10px);
-                                        margin: 0 0 0 10px;
-                                        text-align: right;
-                                    }
-                                }
+                        &:hover {
+                            .popup-cart {
+                                display: block;
                             }
                         }
-                        .totals-checkout {
-                            margin: 30px 0 0 0;
-                            border-top: 2px solid $color__db-grey;
-                            text-align: center;
+                        .price-box {    
+                            color: $color__db-gold;
+                            border: 1px solid $color__db-gold;
+                            font-size: 18px;
+                            float: left;
+                            padding: 5px 10px;
+                            line-height: 1;
+                            @media screen and (min-width: $midwidth){
+                                font-size: 25px;
+                            }
+
+                        }
+                        .quantity-box {
+                            background-color: $color__db-gold;
+                            border: 1px solid $color__db-gold;
+                            color: white;
+                            font-size: 18px;
+                            float: left;
+                            padding: 5px 20px;
+                            line-height: 1;
+                            @media screen and (min-width: $midwidth){
+                                font-size: 25px;
+                            }
+                        }
+                        .popup-cart {
+                            position: absolute;
+                            top: calc(100% - 1px);
+                            right: 0;
+                            width: 200px;
+                            display: none;
+                            background-color: white;
+                            border: 1px solid $color__db-gold;
+                            padding: 10px;
+                            @media screen and (min-width: $midwidth){
+                                width: 150%;
+                                padding: 20px;
+                                max-width: 400px;
+                                min-width: 300px;
+                            }
                             &:after {
                                 clear: both;
                                 content: "";
                                 display: block;
                             }
-                            .subtotal {
-                                padding: 10px 0;
-                                text-align: right;
-                            }
-                            .cart.button {
-                                background-color: $color__db-gold;
-                                color: white;
-                                padding: 10px;
-                                text-transform: uppercase;
-                                font-size: 10px;
-                                display: block;
-                                @media screen and (min-width: $midwidth){
-                                    padding: 10px 15px;
-                                    float: right;
-                                    margin: 10px 10px 0 10px;
+                            .product-box {
+                                margin: 0 0 20px 0;
+                                .product-info {
+                                    &:after {
+                                        clear: both;
+                                        content: "";
+                                        display: block;
+                                    }
+                                    .product-name {
+                                        text-align: left;
+                                        @media screen and (min-width: $midwidth){
+                                            float: left;
+                                            width: 70%;
+                                        }
+                                    }
+                                    .product-quantity {
+                                        text-align: left;
+                                        @media screen and (min-width: $midwidth){
+                                            float: left;
+                                            width: calc(30% - 10px);
+                                            margin: 0 0 0 10px;
+                                            text-align: right;
+                                        }
+                                    }
                                 }
                             }
-                            .checkout.button {
-                                background-color: $color__db-gold;
-                                color: white;
-                                text-transform: uppercase;
-                                font-size: 10px;
-                                padding: 10px;
-                                display: block;
-                                margin: 0 0 10px 0;
-                                @media screen and (min-width: $midwidth){
-                                    padding: 10px 15px;
-                                    float: right;
-                                    margin: 10px 0 0 10px;
+                            .totals-checkout {
+                                margin: 30px 0 0 0;
+                                border-top: 2px solid $color__db-grey;
+                                text-align: center;
+                                &:after {
+                                    clear: both;
+                                    content: "";
+                                    display: block;
                                 }
+                                .subtotal {
+                                    padding: 10px 0;
+                                    text-align: right;
+                                }
+                                .cart.button {
+                                    background-color: $color__db-gold;
+                                    color: white;
+                                    padding: 10px;
+                                    text-transform: uppercase;
+                                    font-size: 10px;
+                                    display: block;
+                                    @media screen and (min-width: $midwidth){
+                                        padding: 10px 15px;
+                                        float: right;
+                                        margin: 10px 10px 0 10px;
+                                    }
+                                }
+                                .checkout.button {
+                                    background-color: $color__db-gold;
+                                    color: white;
+                                    text-transform: uppercase;
+                                    font-size: 10px;
+                                    padding: 10px;
+                                    display: block;
+                                    margin: 0 0 10px 0;
+                                    @media screen and (min-width: $midwidth){
+                                        padding: 10px 15px;
+                                        float: right;
+                                        margin: 10px 0 0 10px;
+                                    }
 
+                                }
                             }
                         }
                     }
