@@ -1622,4 +1622,9 @@ $(document).ready(function () {
 				prevText: '<i class="fa fa-chevron-circle-left"></i>',
 				nextText: '<i class="fa fa-chevron-circle-right"></i>',
     });
+
+    $('.row-1.cart-bar >.wrapper >i.search').click(function(){
+      var $form = $('.row-1.cart-bar >.wrapper >form.bella-search');
+      $form.toggle(200);
+    });
 });

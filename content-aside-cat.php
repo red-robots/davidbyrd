@@ -69,9 +69,4 @@
         </div><!--.row-2-->
         <?php wp_reset_postdata();
     endif;?>
-    <form class="bella-search" action="<?php the_permalink(551);?>" method="POST">
-        <h2>Search</h2>
-        <input type="text" name="search" placeholder="" <?php if(isset($_POST['search'])) echo 'value="'.$_POST['search'].'"';?>>
-        <button type="submit"><i class="fa fa-arrow-circle-o-right"></i></button>
-    </form>
 </aside><!--.col-1-->
