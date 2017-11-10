@@ -492,4 +492,11 @@ function bella_options_page(){
 	add_options_page( 'One Time Codes', 'One Time Codes', 'manage_options', 'one-time-codes', 'bella_one_time_codes');
 }
 add_action('admin_menu','bella_options_page');
+
+if(!function_exists('return_100')){
+	function return_100(){
+		return 100;
+	}
+}
+add_filter( 'jpeg_quality', 'return_100' );
 ?>
