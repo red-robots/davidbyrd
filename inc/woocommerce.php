@@ -47,11 +47,11 @@ add_action('woocommerce_after_single_product','woocommerce_output_related_produc
  * Changes the redirect URL for the Return To Shop button in the cart.
  * Thanks https://nicola.blog/2015/07/20/change-the-return-to-shop-button-url-in-the-cart-page/
  * @return string
- */
 function wc_empty_cart_redirect_url() {
 	return get_the_permalink(551);
 }
 add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );
+*/
 
 /**
  * Each tab is an array containing title, callback and priority.
@@ -195,4 +195,25 @@ function bella_ajax_get_cart() {
 	die( 0 );
 }
 
+if(!function_exists('bella_custom_search')){
+	add_action( 'woocommerce_product_query', 'bella_custom_search', 10 );
+	function bella_custom_search($q){
+		global $wpdb;
+		if(isset($_POST['search'])):
+			$prepare_args = array();
+			$prepare_string = "SELECT ID, post_title FROM $wpdb->posts WHERE post_title LIKE '%%%s%%' AND post_type=%s";
+			array_unshift($prepare_args,'product');
+			array_unshift($prepare_args,$_POST['search']);
+			array_unshift($prepare_args,$prepare_string);
+			$results = $wpdb->get_results(  call_user_func_array(array($wpdb, "prepare"),$prepare_args));
+			$in = array(-1);
+			if($results):     
+				foreach($results as $result):
+					$in[] = $result->ID;
+				endforeach;
+			endif;
+			$q->set('post__in', $in);
+		endif;
+	}
+}
 ?>

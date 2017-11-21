@@ -300,6 +300,7 @@ align-self: $value;
                         .popup-cart {
                             position: absolute;
                             top: calc(100% - 1px);
+                            z-index: 10;
                             right: 0;
                             width: 200px;
                             display: none;
@@ -891,7 +892,9 @@ align-self: $value;
         }
     }
 }
-
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+    width: auto;
+}
 /*
  * jQuery FlexSlider v2.4.0
  * http://www.woothemes.com/flexslider/

@@ -1,7 +1,7 @@
-<?php global $terms_ids;?>
+<?php global $terms_ids, $cat;?>
 <aside class="col-1">
     <?php $args = array(
-        'taxonomy'   => "product_cat",
+        'taxonomy'   => $cat,
         'order'      => 'ASC',
         'orderby'    => 'term_order',
         'hide_empty' => 0
@@ -34,7 +34,7 @@
         'tax_query' => array(               
             'relation'=>'AND',
             array(
-                'taxonomy' => 'product_cat',
+                'taxonomy' => $cat,
                 'field' => 'term_id',
                 'terms' => $terms_ids,
                 'operator'=>'IN'

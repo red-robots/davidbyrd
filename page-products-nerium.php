@@ -1,10 +1,10 @@
 <?php /*
-*   Template Name: Products & Services
+*   Template Name: Nerium
 */
 global $terms_ids;
 global $search_link_id;
 global $cat;
-$cat='product_cat';
+$cat = 'nerium';
 get_header(); ?>
     <div id="main">
         <div class="product-content">

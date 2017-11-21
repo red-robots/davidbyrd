@@ -1,7 +1,8 @@
+<?php global $search_link_id;?>
 <aside class="cart-bar row-1">
     <div class="wrapper">
         <div class="col-1">
-            <form class="bella-search" action="<?php the_permalink(551);?>" method="POST">
+            <form class="bella-search" action="<?php echo get_the_permalink($search_link_id);?>" method="POST">
                 <input type="text" name="search" placeholder="" <?php if(isset($_POST['search'])) echo 'value="'.$_POST['search'].'"';?>>
             </form>
             <i class="search fa fa-search"></i>

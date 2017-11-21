@@ -2,11 +2,13 @@
 /**
  * Template Name: Products & Services
  */
+
+global $search_link_id;
 get_header(); ?>
 
     <div id="main">
 <?php if ( have_posts() ) :
-	the_post(); ?>
+    the_post(); ?>
     <div class="page-content">
         <h1><?php the_title(); ?></h1>
 		<?php $tiles = get_field( "tiles" );

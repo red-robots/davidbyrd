@@ -53,7 +53,7 @@
 @media screen and (min-width:900px){#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .price-box,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .price-box{font-size:25px}
 }#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .quantity-box,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .quantity-box{background-color:#d8a958;border:1px solid #d8a958;color:white;font-size:18px;float:left;padding:5px 20px;line-height:1}
 @media screen and (min-width:900px){#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .quantity-box,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .quantity-box{font-size:25px}
-}#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart{position:absolute;top:calc(100% - 1px);right:0;width:200px;display:none;background-color:white;border:1px solid #d8a958;padding:10px}
+}#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart{position:absolute;top:calc(100% - 1px);z-index:10;right:0;width:200px;display:none;background-color:white;border:1px solid #d8a958;padding:10px}
 @media screen and (min-width:900px){#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart{width:150%;padding:20px;max-width:400px;min-width:300px}
 }#main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart:after,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart:after{clear:both;content:"";display:block}
 #main .product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart .product-box,#main .single-product-content>.row-1.cart-bar>.wrapper>.col-2>.wrapper .popup-cart .product-box{margin:0 0 20px 0}
@@ -172,7 +172,8 @@
 #main .product-content>.row-3>section.col-2 .product.single>.col-2 .woocommerce-tabs .woocommerce-Tabs-panel>*:last-child,#main .single-product-content>.row-3>section.col-2 .product.single>.col-2 .woocommerce-tabs .woocommerce-Tabs-panel>*:last-child{margin-bottom:0}
 #main .product-content>.row-3>section.col-2 .related.products h2,#main .single-product-content>.row-3>section.col-2 .related.products h2{margin:10px 0 20px 0;text-transform:uppercase}
 @media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .related.products h2,#main .single-product-content>.row-3>section.col-2 .related.products h2{margin:10px 0 40px 0}
-}.flex-container a:hover,.flex-slider a:hover,.flex-container a:focus,.flex-slider a:focus{outline:0}
+}.woocommerce-cart table.cart td.actions .coupon .input-text{width:auto}
+.flex-container a:hover,.flex-slider a:hover,.flex-container a:focus,.flex-slider a:focus{outline:0}
 .slides,.slides>li,.flex-control-nav,.flex-direction-nav{margin:0;padding:0;list-style:none}
 .flex-pauseplay span{text-transform:capitalize}
 #flexslider{margin:0;padding:0}

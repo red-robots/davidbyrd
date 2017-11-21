@@ -1,8 +1,8 @@
 <?php
 /**
- * The Template for displaying product archives, including the main shop page which is a post type archive
+ * The Template for displaying products in a product category. Simply includes the archive template
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/taxonomy-product_cat.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,16 +11,16 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.0
+ * @version     1.6.4
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 global $search_link_id, $cat;
-$search_link_id = 10;
-$cat='product_cat';
+$search_link_id = 1308;
+$cat='nerium';
 get_header( 'shop' ); ?>
 	<div id="main">
 		<div class="product-content">
@@ -150,3 +150,4 @@ get_header( 'shop' ); ?>
 		</div><!-- .product-content -->
     </div><!--#main-->
 <?php get_footer( 'shop' ); ?>
+
