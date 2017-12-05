@@ -38,10 +38,12 @@ if(!function_exists('bella_remove_hooks')){
 		remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
 		remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
 		remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
+		remove_action('woocommerce_after_single_product_summary','woocommerce_upsell_display',15);
+		remove_action('woocommerce_after_single_product_summary','woocommerce_output_product_data_tabs',10);
     }
 }
 add_action('woocommerce_single_product_summary','woocommerce_template_single_price',25);
-add_action('woocommerce_after_single_product','woocommerce_output_related_products',20);
+add_action('woocommerce_after_single_product','woocommerce_upsell_display',20);
 
 /**
  * Changes the redirect URL for the Return To Shop button in the cart.
@@ -95,7 +97,7 @@ if(!function_exists('bella_add_tabs')&&!function_exists('bella_whats_tab')&&!fun
 				 echo '<p>' . $comment->comment_content . '</p>';
 			 }
 		 } else {
-			 echo 'No comments found.';
+			 echo 'No reviews found.';
 		 }
 	}
 }

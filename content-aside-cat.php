@@ -25,6 +25,7 @@
             </div><!--.wrapper-->
         </div><!--.row-1-->
     <?php endif;
+    /* OLD QUERY
     $args = array(
         'post_type'             => 'product',
         'post_status'           => 'publish',
@@ -46,6 +47,28 @@
                 'operator'=>'NOT IN'
             )
         )
+    );*/
+    $args = array(
+        'post_type'             => 'product',
+        'post_status'           => 'publish',
+        'posts_per_page'        => 3,
+        'order'=>'ASC',
+        'orderby'=>'rand',
+        'tax_query' => array(
+            'relation'=>'AND',       
+            array(
+                'taxonomy'=>'product_visibility',
+                'field'=>'slug',
+                'terms'=>array('exclude-from-catalog','exclude-from-search'),
+                'operator'=>'NOT IN'
+            ),
+            array(
+                'taxonomy' => 'product_visibility',
+                'field'    => 'name',
+                'terms'    => 'featured',
+                'operator' => 'IN',
+            )
+        )
     );
     $most_pop_query = new WP_Query($args);
     if($most_pop_query->have_posts()):?>
@@ -64,7 +87,7 @@
                         </div><!--.most-pop-box-->
                     <?php endwhile;?>
                 </div><!--.wrapper-->
-                <a href="<?php echo get_the_permalink(551);?>">View All</a>
+                <a href="<?php echo get_the_permalink(10);?>">View All</a>
             </div><!--.wrapper-->
         </div><!--.row-2-->
         <?php wp_reset_postdata();
