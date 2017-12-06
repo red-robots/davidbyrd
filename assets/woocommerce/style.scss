@@ -916,6 +916,16 @@ align-self: $value;
 .woocommerce-cart table.cart td.actions .coupon .input-text {
     width: auto;
 }
+.single-lesson {
+    .audio-box-button-wrapper {
+        margin: 20px 0;
+    }
+}
+.woocommerce-page .page-content li {
+    background: none; 
+    padding-left: 3.5em;
+    margin-bottom: initial;
+}
 /*
  * jQuery FlexSlider v2.4.0
  * http://www.woothemes.com/flexslider/

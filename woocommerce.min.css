@@ -176,6 +176,8 @@
 #main .product-content>.row-3>section.col-2 .related.products h2,#main .single-product-content>.row-3>section.col-2 .related.products h2{margin:10px 0 20px 0;text-transform:uppercase}
 @media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .related.products h2,#main .single-product-content>.row-3>section.col-2 .related.products h2{margin:10px 0 40px 0}
 }.woocommerce-cart table.cart td.actions .coupon .input-text{width:auto}
+.single-lesson .audio-box-button-wrapper{margin:20px 0}
+.woocommerce-page .page-content li{background:0;padding-left:3.5em;margin-bottom:initial}
 .flex-container a:hover,.flex-slider a:hover,.flex-container a:focus,.flex-slider a:focus{outline:0}
 .slides,.slides>li,.flex-control-nav,.flex-direction-nav{margin:0;padding:0;list-style:none}
 .flex-pauseplay span{text-transform:capitalize}

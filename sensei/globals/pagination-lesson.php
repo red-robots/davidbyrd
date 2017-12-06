@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @category    Templates
  * @version     1.9.0
  */
-
+return;
 global $post;
 $nav_id_array = sensei_get_prev_next_lessons( $post->ID );
 $previous_lesson_id = absint( $nav_id_array['prev_lesson'] );

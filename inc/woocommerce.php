@@ -32,6 +32,7 @@ if(!function_exists('bella_related_product_args')){
 if(!function_exists('bella_remove_hooks')){
     add_action('init','bella_remove_hooks',10);
     function bella_remove_hooks(){
+		global $woothemes_sensei;
 		remove_action('woocommerce_after_single_product_summary','woocommerce_output_related_products',20);
 		remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
 		remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);

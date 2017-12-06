@@ -2,6 +2,8 @@
 
 require get_template_directory() . '/inc/pagination.php';
 require get_template_directory() . '/inc/woocommerce.php';
+require get_template_directory() . '/inc/sensei.php';
+
 /*-------------------------------------
 	Adds Options page for ACF.
 ---------------------------------------*/

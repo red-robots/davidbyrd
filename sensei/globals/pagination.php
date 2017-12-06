@@ -15,7 +15,6 @@ global $wp_query;
 if ( $wp_query->max_num_pages <= 1 ) {
     return;
 }
-
 ?>
 <nav class="sensei-pagination">
     <?php

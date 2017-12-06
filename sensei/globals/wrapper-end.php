@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 ?>
         </div>
-        <?php get_sidebar(); ?>
+        <?php //get_sidebar(); ?>
 </div>
