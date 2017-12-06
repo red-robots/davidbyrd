@@ -46,6 +46,34 @@ if(have_posts()):the_post();
                 endif;
                 $bella_args['post__in'] = $in;
             endif;
+            if(isset($_GET['orderby'])):
+                switch($_GET['orderby']):
+                    case 'price':
+                        $bella_args['orderby'] = 'meta_value_num';
+                        $bella_args['order'] = 'ASC';
+                        $bella_args['meta_key'] = '_price';
+                        break;
+                    case 'price-desc':
+                        $bella_args['orderby'] = 'meta_value_num';
+                        $bella_args['order'] = 'DESC';
+                        $bella_args['meta_key'] = '_price';
+                        break;
+                    case 'date':
+                        $bella_args['orderby'] = 'date';
+                        $bella_args['order'] = 'ASC';
+                        break;
+                    case 'popularity':
+                        $bella_args['orderby'] = 'meta_value_num';
+                        $bella_args['order'] = 'ASC';
+                        $bella_args['meta_key']='total_sales';
+                        break;
+                    case 'rating':
+                        $bella_args['orderby'] = 'meta_value_num';
+                        $bella_args['order']='ASC';
+                        $bella_args['meta_key']='_wc_average_rating';
+                        break;
+                endswitch;
+            endif;
             $bella_query = new WP_Query( $bella_args ); ?>
             <?php if ( $bella_query->have_posts() ) : ?>
                 <?php

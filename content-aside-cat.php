@@ -24,8 +24,24 @@
                 </ul>
             </div><!--.wrapper-->
         </div><!--.row-1-->
-    <?php endif;
-    /* OLD QUERY
+    <?php endif;?>
+    <div class="row-2">
+        <header>
+            <h2>Top Sellers</h2>
+        </header>
+        <form class="woocommerce-ordering" method="get">
+            <select name="orderby" class="orderby">
+                <option value="menu_order" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='menu_order')||!isset($_GET['orderby'])) echo 'selected="selected"';?>>Default sorting</option>
+                <option value="popularity" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='popularity')) echo 'selected="selected"';?>>Sort by popularity</option>
+                <option value="rating" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='rating')) echo 'selected="selected"';?>>Sort by average rating</option>
+                <option value="date" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='date')) echo 'selected="selected"';?>>Sort by newness</option>
+                <option value="price" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='price')) echo 'selected="selected"';?>>Sort by price: low to high</option>
+                <option value="price-desc" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='price-desc')) echo 'selected="selected"';?>>Sort by price: high to low</option>
+            </select>
+	        <?php wc_query_string_form_fields( null, array( 'orderby', 'submit' ) ); ?>
+        </form>
+    </div><!--.row-2-->
+    <?php /* OLD QUERY
     $args = array(
         'post_type'             => 'product',
         'post_status'           => 'publish',
@@ -72,7 +88,7 @@
     );
     $most_pop_query = new WP_Query($args);
     if($most_pop_query->have_posts()):?>
-        <div class="row-2 popular-box">
+        <div class="row-3 popular-box">
             <header>
                 <h2>Top Sellers</h2>
             </header>
