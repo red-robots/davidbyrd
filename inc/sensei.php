@@ -1,4 +1,10 @@
-<?php 
+<?php
+if(!function_exists('declare_sensei_support')){ 
+    add_action( 'after_setup_theme', 'declare_sensei_support' );
+    function declare_sensei_support() {
+        add_theme_support( 'sensei' );
+    }
+}
 if(!function_exists('bella_sensei_add_audio_pdf')){
     add_action('sensei_single_lesson_content_inside_after','bella_sensei_add_audio_pdf',10,1);
     function bella_sensei_add_audio_pdf($id){

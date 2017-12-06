@@ -1,4 +1,10 @@
-<?php 
+<?php
+if(!function_exists('woocommerce_support')){ 
+	add_action( 'after_setup_theme', 'woocommerce_support' );
+	function woocommerce_support() {
+		add_theme_support( 'woocommerce' );
+	}
+}
 if(!function_exists('bella_add_view_now')){
     add_action('woocommerce_after_shop_loop_item','bella_add_view_now',20);
     function bella_add_view_now(){
