@@ -1,7 +1,11 @@
 <?php global $search_link_id;?>
 <aside class="cart-bar row-1">
     <header>
-        <h1><?php the_title();?></h1>
+        <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+
+            <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+
+        <?php endif; ?>
     </header>
     <div class="wrapper">
         <div class="col-1">

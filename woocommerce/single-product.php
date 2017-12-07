@@ -15,7 +15,8 @@
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
-
+global $cat;
+$cat='product_cat';
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
@@ -25,9 +26,6 @@ get_header( 'shop' ); ?>
 		<div class="single-product-content">
 			<?php if ( have_posts() ) : the_post(); ?>
 				<?php get_template_part("content-aside-cart");?>
-				<div class="row-2">
-					<h1><?php the_title(); ?></h1>
-				</div><!--.row-2-->
 				<div class="row-3">                
 					<?php get_template_part("content-aside-cat");?>
 					<section class="col-2">

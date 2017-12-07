@@ -4,9 +4,6 @@ global $cat;
 if(have_posts()):the_post();
     $search_link_id = get_the_ID();?>
     <?php get_template_part("content-aside-cart");?>
-    <div class="row-2">
-        <h1><?php the_title(); ?></h1>
-    </div><!--.row-2-->
     <div class="row-3">                
         <?php get_template_part("content-aside-cat");?>
         <section class="col-2">

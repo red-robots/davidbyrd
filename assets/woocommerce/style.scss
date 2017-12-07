@@ -155,11 +155,21 @@ align-self: $value;
         }
         >.row-1.cart-bar {
             text-align: center;
-            margin: 0 0 10px 0;
+            margin: 0 0 20px 0;
             &:after {
                 clear: both;
                 content: "";
                 display: block;
+            }
+            >header {
+                margin: 0 0 10px 0;
+                @media screen and (min-width: $midwidth){
+                    float: left;
+                    margin: 0;
+                }
+                h1 {
+                    margin: 0;
+                }
             }
             >.wrapper {
                 position: relative;
@@ -392,10 +402,7 @@ align-self: $value;
             }
         }
         >.row-2 {
-            margin: 0 0 20px 0;
-            @media screen and (min-width: $midwidth){
-                margin: 0 0 40px 0;
-            }
+            margin: 0 0 10px 0;
             h1 {
 
             }
@@ -925,6 +932,16 @@ align-self: $value;
     background: none; 
     padding-left: 3.5em;
     margin-bottom: initial;
+}
+.bundled_product.bundled_product_summary.product {
+    padding: 20px 0;
+    .bundled_product_images {
+        float: none;
+        margin: 0;
+    }
+    >.details {
+
+    }
 }
 /*
  * jQuery FlexSlider v2.4.0

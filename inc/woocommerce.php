@@ -34,7 +34,6 @@ if(!function_exists('bella_related_product_args')){
 		return $args;
 	}
 }
-
 if(!function_exists('bella_remove_hooks')){
     add_action('init','bella_remove_hooks',10);
     function bella_remove_hooks(){
