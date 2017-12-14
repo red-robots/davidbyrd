@@ -512,7 +512,7 @@ align-self: $value;
                                         float: left;
                                         width: 70%;
                                         padding: 0 5px 0 10px;
-                                        font-size: 10px;
+                                        font-size: 12px;
                                         font-weight: 500;
                                         text-align: left;
                                     }
@@ -679,6 +679,9 @@ align-self: $value;
                                 &:hover {
 	                                background-color: $color__db-grey;
                                 }
+                                &.product_type_bundle_input_required {
+                                    display: none;
+                                }
                             }
                             a.view_now {
                                 padding: 10px;
@@ -744,6 +747,12 @@ align-self: $value;
                                     font-family: 'Lato', sans-serif;
                                     margin: 0;
                                 }
+                                .details {
+                                    font-size: 12px;
+                                }
+                                .bundled_product_images, .bundled_product_title.product_title {
+                                    display: none;
+                                }
                                 .woocommerce-product-details__short-description {
                                     margin: 20px 0;
                                     @media screen and (min-width: $midwidth){
@@ -756,7 +765,7 @@ align-self: $value;
                                         margin-bottom: 0;
                                     }
                                     p {
-                                        font-size: 12px;
+                                        font-size: 14px;
 
                                     }
                                 }

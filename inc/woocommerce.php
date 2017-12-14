@@ -224,4 +224,18 @@ if(!function_exists('bella_custom_search')){
 		endif;
 	}
 }
+
+if(!function_exists('bella_woocommerce_product_add_to_cart_text')){
+	add_filter( 'woocommerce_product_single_add_to_cart_text', 'bella_woocommerce_product_add_to_cart_text' );
+	add_filter( 'woocommerce_product_add_to_cart_text' , 'bella_woocommerce_product_add_to_cart_text' );
+	function bella_woocommerce_product_add_to_cart_text($default) {
+		global $product;
+
+		if( $product->is_type('bundle') || $product->is_type('subscription')) {
+			return __( 'Add to cart', 'woocommerce' );
+		} else {
+			return $default;
+		}
+	}
+}
 ?>
