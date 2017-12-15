@@ -1,31 +1,28 @@
-<?php global $terms_ids;
-global $search_link_id;
-global $cat;
+<?php global $search_link_id;
 if(have_posts()):the_post();
     $search_link_id = get_the_ID();?>
     <?php get_template_part("content-aside-cart");?>
     <div class="row-3">                
-        <?php get_template_part("content-aside-cat");?>
+        <?php get_template_part("content-aside-featured");?>
         <section class="col-2">
             <?php get_template_part("content-aside-woo-banner");?>
             <?php $bella_args = array(
-                'post_type'      => 'product',
-                'post_status'    => 'publish',
+                'post_type'             => 'product',
+                'post_status'           => 'publish',
                 'posts_per_page' => 12,
-                'paged'=>$paged,
-                'tax_query' => array(               
-                    'relation'=>'AND',
-                    array(
-                        'taxonomy' => $cat,
-                        'field' => 'term_id',
-                        'terms' => $terms_ids,
-                        'operator'=>'IN'
-                    ),
+                'tax_query' => array(
+                    'relation'=>'AND',       
                     array(
                         'taxonomy'=>'product_visibility',
                         'field'=>'slug',
                         'terms'=>array('exclude-from-catalog','exclude-from-search'),
                         'operator'=>'NOT IN'
+                    ),
+                    array(
+                        'taxonomy' => 'product_visibility',
+                        'field'    => 'name',
+                        'terms'    => 'featured',
+                        'operator' => 'IN',
                     )
                 )
             );
