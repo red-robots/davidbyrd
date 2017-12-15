@@ -55,7 +55,7 @@
                         </div><!--.most-pop-box-->
                     <?php endwhile;?>
                 </div><!--.wrapper-->
-                <a href="<?php echo get_the_permalink(10);?>">View All</a>
+                <a href="<?php echo get_the_permalink(1451);?>">View All</a>
             </div><!--.wrapper-->
         </div><!--.row-2-->
         <?php wp_reset_postdata();
