@@ -749,6 +749,9 @@ align-self: $value;
                                 }
                                 .details {
                                     font-size: 12px;
+                                    a.reset_variations {
+                                        display: none !important;
+                                    }
                                 }
                                 .bundled_product_images, .bundled_product_title.product_title {
                                     display: none;
