@@ -753,6 +753,8 @@ align-self: $value;
                                         display: none !important;
                                     }
                                 }
+                                .bundled_products thead,
+                                .bundled_item_qty_col, .bundled_item_images_col,
                                 .bundled_product_images, .bundled_product_title.product_title {
                                     display: none;
                                 }
