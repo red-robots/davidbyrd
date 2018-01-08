@@ -1,5 +1,30 @@
+<?php global $cat;?>
 <aside class="col-1">
-    
+    <?php $args = array(
+        'taxonomy'   => $cat,
+        'order'      => 'ASC',
+        'orderby'    => 'term_order',
+        'hide_empty' => 0
+    );
+    $terms_ids= array();
+    $terms      = get_terms( $args );
+    if ( ! is_wp_error( $terms ) && is_array( $terms ) && ! empty( $terms ) ):?>
+        <div class="row-1 cat-box">
+            <header>
+                <h2>Category</h2>
+            </header>
+            <div class="wrapper">
+                <ul>
+                    <?php foreach($terms as $term):
+                        $terms_ids[] = $term->term_id;?>
+                        <li>
+                            <a href="<?php echo get_term_link($term); ?>"><?php echo $term->name;?></a>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+            </div><!--.wrapper-->
+        </div><!--.row-1-->
+    <?php endif;?>
     <div class="row-2">
         <header>
             <h2>Top Sellers</h2>

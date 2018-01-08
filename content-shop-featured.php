@@ -1,4 +1,6 @@
 <?php global $search_link_id;
+global $search_link_id;
+global $cat;
 if(have_posts()):the_post();
     $search_link_id = get_the_ID();?>
     <?php get_template_part("content-aside-cart");?>

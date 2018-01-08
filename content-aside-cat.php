@@ -1,4 +1,4 @@
-<?php global $terms_ids, $cat;?>
+<?php global $terms_ids, $cat, $search_link_id;?>
 <aside class="col-1">
     <?php $args = array(
         'taxonomy'   => $cat,
@@ -27,9 +27,9 @@
     <?php endif;?>
     <div class="row-2">
         <header>
-            <h2>Top Sellers</h2>
+            <h2>Sort</h2>
         </header>
-        <form class="woocommerce-ordering" method="get">
+        <form class="woocommerce-ordering" action="<?php echo get_the_permalink($search_link_id);?>" method="get">
             <select name="orderby" class="orderby">
                 <option value="menu_order" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='menu_order')||!isset($_GET['orderby'])) echo 'selected="selected"';?>>Default sorting</option>
                 <option value="popularity" <?php if((isset($_GET['orderby'])&&$_GET['orderby']==='popularity')) echo 'selected="selected"';?>>Sort by popularity</option>
@@ -41,30 +41,7 @@
 	        <?php wc_query_string_form_fields( null, array( 'orderby', 'submit' ) ); ?>
         </form>
     </div><!--.row-2-->
-    <?php /* OLD QUERY
-    $args = array(
-        'post_type'             => 'product',
-        'post_status'           => 'publish',
-        'posts_per_page'        => 3,            
-        'meta_key'              => 'total_sales',
-        'orderby'               => 'meta_value_num',
-        'tax_query' => array(               
-            'relation'=>'AND',
-            array(
-                'taxonomy' => $cat,
-                'field' => 'term_id',
-                'terms' => $terms_ids,
-                'operator'=>'IN'
-            ),
-            array(
-                'taxonomy'=>'product_visibility',
-                'field'=>'slug',
-                'terms'=>array('exclude-from-catalog','exclude-from-search'),
-                'operator'=>'NOT IN'
-            )
-        )
-    );*/
-    $args = array(
+    <?php $args = array(
         'post_type'             => 'product',
         'post_status'           => 'publish',
         'posts_per_page'        => 3,
@@ -83,7 +60,13 @@
                 'field'    => 'name',
                 'terms'    => 'featured',
                 'operator' => 'IN',
-            )
+            ),
+            array(
+                'taxonomy' => $cat,
+                'field' => 'term_id',
+                'terms' => $terms_ids,
+                'operator'=>'IN'
+            ),
         )
     );
     $most_pop_query = new WP_Query($args);

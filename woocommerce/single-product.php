@@ -15,16 +15,22 @@
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
-global $cat;
-$cat='product_cat';
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
+global $cat;
+global $search_link_id;
 get_header( 'shop' ); ?>
 	<div id="main">
 		<div class="single-product-content">
-			<?php if ( have_posts() ) : the_post(); ?>
+			<?php if ( have_posts() ) : the_post(); 
+				if(has_term('','nerium')){
+					$cat = 'nerium';
+					$search_link_id = 1308;
+				} else {
+					$cat='product_cat';
+					$search_link_id = 10;
+				}?>
 				<?php get_template_part("content-aside-cart");?>
 				<div class="row-3">                
 					<?php get_template_part("content-aside-cat");?>
