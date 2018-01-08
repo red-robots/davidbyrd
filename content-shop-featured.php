@@ -1,11 +1,11 @@
-<?php global $search_link_id;
+<?php global $terms_ids;
 global $search_link_id;
 global $cat;
 if(have_posts()):the_post();
     $search_link_id = get_the_ID();?>
     <?php get_template_part("content-aside-cart");?>
     <div class="row-3">                
-        <?php get_template_part("content-aside-featured");?>
+        <?php get_template_part("content-aside-cat");?>
         <section class="col-2">
             <?php get_template_part("content-aside-woo-banner");?>
             <?php $bella_args = array(
@@ -25,7 +25,13 @@ if(have_posts()):the_post();
                         'field'    => 'name',
                         'terms'    => 'featured',
                         'operator' => 'IN',
-                    )
+                    ),
+                    array(
+                        'taxonomy' => $cat,
+                        'field' => 'term_id',
+                        'terms' => $terms_ids,
+                        'operator'=>'IN'
+                    ),
                 )
             );
             if(isset($_POST['search'])):
