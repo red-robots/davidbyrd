@@ -934,6 +934,10 @@ align-self: $value;
         }
     }
 }
+
+.woocommerce-page .page-content li.woocommerce-MyAccount-navigation-link {
+    padding-left: 0;
+}
 .woocommerce-cart table.cart td.actions .coupon .input-text {
     width: auto;
 }
@@ -941,6 +945,10 @@ align-self: $value;
     .audio-box-button-wrapper {
         margin: 20px 0;
     }
+}
+.woocommerce-page .page-content ul {
+    columns: unset;
+    -webkit-columns: unset;
 }
 .woocommerce-page .page-content li {
     background: none; 
