@@ -911,6 +911,9 @@ align-self: $value;
                                 border-bottom: 2px solid lightgrey;
                                 padding: 10px 5px;
                                 font-size: 14px;
+                                * {
+                                    max-width: 100%;
+                                }
                                 >*:first-child {
                                     margin-top: 0;
                                 }
