@@ -180,7 +180,7 @@
 #main .product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel *,#main .single-product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel *{max-width:100%}
 #main .product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel>*:first-child,#main .single-product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel>*:first-child{margin-top:0}
 #main .product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel>*:last-child,#main .single-product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel>*:last-child{margin-bottom:0}
-#main .product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel .comments,#main .single-product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel .comments{min-height:0}
+#main .product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel #comments,#main .single-product-content>.row-3>section.col-2 .product.single>.row-2 .woocommerce-tabs .woocommerce-Tabs-panel #comments{min-height:0}
 #main .product-content>.row-3>section.col-2 .related.products h2,#main .single-product-content>.row-3>section.col-2 .related.products h2{margin:10px 0 20px 0;text-transform:uppercase}
 @media screen and (min-width:900px){#main .product-content>.row-3>section.col-2 .related.products h2,#main .single-product-content>.row-3>section.col-2 .related.products h2{margin:10px 0 40px 0}
 }.woocommerce-page .page-content li.woocommerce-MyAccount-navigation-link{padding-left:0}

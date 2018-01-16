@@ -772,7 +772,7 @@
             margin-top: 0; }
           #main .product-content > .row-3 > section.col-2 .product.single > .row-2 .woocommerce-tabs .woocommerce-Tabs-panel > *:last-child, #main .single-product-content > .row-3 > section.col-2 .product.single > .row-2 .woocommerce-tabs .woocommerce-Tabs-panel > *:last-child {
             margin-bottom: 0; }
-          #main .product-content > .row-3 > section.col-2 .product.single > .row-2 .woocommerce-tabs .woocommerce-Tabs-panel .comments, #main .single-product-content > .row-3 > section.col-2 .product.single > .row-2 .woocommerce-tabs .woocommerce-Tabs-panel .comments {
+          #main .product-content > .row-3 > section.col-2 .product.single > .row-2 .woocommerce-tabs .woocommerce-Tabs-panel #comments, #main .single-product-content > .row-3 > section.col-2 .product.single > .row-2 .woocommerce-tabs .woocommerce-Tabs-panel #comments {
             min-height: 0; }
       #main .product-content > .row-3 > section.col-2 .related.products h2, #main .single-product-content > .row-3 > section.col-2 .related.products h2 {
         margin: 10px 0 20px 0;
