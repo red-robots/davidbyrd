@@ -920,6 +920,9 @@ align-self: $value;
                                 >*:last-child {
                                     margin-bottom: 0;
                                 }
+                                .comments {
+                                    min-height: 0;
+                                }
                             }
                         }
                     }
