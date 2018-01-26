@@ -34,6 +34,26 @@ if(!function_exists('bella_related_product_args')){
 		return $args;
 	}
 }
+if(!function_exists('bella_woocommerce_clear_cart_url')) {
+	add_action('init', 'bella_woocommerce_clear_cart_url');
+	function bella_woocommerce_clear_cart_url() {
+		global $woocommerce;
+		if( isset($_REQUEST['clear-cart']) ) {
+			$woocommerce->cart->empty_cart();
+		}
+	}
+}
+if(!function_exists('bella_clear_cart')){
+	add_action( 'bella_woocommerce_after_cart_table', 'bella_clear_cart',10);
+	function bella_clear_cart() {
+		echo '<form action="" method="post">';
+		echo '<input type="submit" class="button" name="clear-cart" value="';
+		echo _e("Clear Cart","woocommerce");
+		echo '">';
+		echo '</form>';
+	}
+}
+
 if(!function_exists('bella_remove_hooks')){
     add_action('init','bella_remove_hooks',10);
     function bella_remove_hooks(){

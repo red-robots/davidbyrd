@@ -153,6 +153,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
 
+<?php do_action( 'bella_woocommerce_after_cart_table' ); ?>
+
 <div class="cart-collaterals">
 	<?php
 		/**
