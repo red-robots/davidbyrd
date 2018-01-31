@@ -71,6 +71,13 @@ if(!function_exists('bella_remove_hooks')){
 add_action('woocommerce_single_product_summary','woocommerce_template_single_price',25);
 add_action('woocommerce_after_single_product','woocommerce_upsell_display',20);
 
+if(!function_exists('sv_wc_memberships_my_content_table_remove_active')){
+	function sv_wc_memberships_my_content_table_remove_active( $columns ) {
+			unset($columns['membership-content-accessible']);
+			return $columns;
+	}
+	add_filter( 'wc_memberships_members_area_my_membership_content_column_names', 'sv_wc_memberships_my_content_table_remove_active', 11 );
+}
 /**
  * Changes the redirect URL for the Return To Shop button in the cart.
  * Thanks https://nicola.blog/2015/07/20/change-the-return-to-shop-button-url-in-the-cart-page/

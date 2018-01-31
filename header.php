@@ -148,9 +148,11 @@ else { document.getElementById(d).style.display = "none"; }
 
 <div class="social-icon"><a href="https://twitter.com/davidbyrdtweets" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/twitter.jpg" alt="" border="0"></a></div>
 
-    <div class="social-icon" style="margin-right: 3px;"><a href="http://davidbyrdconsulting.com/golden-key-earner-log-in"><img src="<?php bloginfo('template_url'); ?>/images/golden-key-icon.png" alt="" border="0"></a></div>
-    <div class="social-icon digital-vault" style="margin-right: 3px;"><a href="http://davidbyrdconsulting.com/digitalvault">Digital Vault Login</a></div>
-
+<?php $button_link = get_field("header_button_link","option");
+$button_text = get_field("header_button_text","option");
+if($button_link&&$button_text):?>
+    <div class="social-icon digital-vault" style="margin-right: 3px;"><a href="<?php echo $button_link;?>"><?php echo $button_text;?></a></div>
+<?php endif;?>
 </div>
 
 </div> 
