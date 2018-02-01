@@ -368,10 +368,8 @@ sup {
 
 
 #header-content {
-
+	margin: 0;
 	width: 100%;
-
-	height: 59px;
 
 	float: right;	
 
@@ -380,8 +378,6 @@ sup {
 
 
 #header-content1-wrapper {
-
-	width: 400px;
 
 	float: right;
 
@@ -4362,7 +4358,11 @@ padding-left: 0px;
 
 @media all and (max-width: 1200px) {
 
-
+.social-icon.digital-vault {
+	float: none;
+	display: inline-block;
+	margin: 5px 0 !important;
+}
 
 .alignleft,
 
@@ -4740,13 +4740,9 @@ padding-bottom: 15px;
 
 #header-content {
 
-
+margin: 0 0 10px 0;
 
 width: 100%;
-
-
-
-height: 50px;
 
 
 
@@ -4812,7 +4808,7 @@ float: left;
 
 
 
-text-align: left;
+text-align: right;
 
 
 
