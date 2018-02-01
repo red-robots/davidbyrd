@@ -4,7 +4,8 @@
         'taxonomy'   => $cat,
         'order'      => 'ASC',
         'orderby'    => 'term_order',
-        'hide_empty' => 0
+        'hide_empty' => 0,
+        'exclude'=>array(76)
     );
     $terms_ids= array();
     $terms      = get_terms( $args );
