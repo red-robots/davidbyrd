@@ -63,8 +63,6 @@ get_header( 'shop' ); ?>
 							?>
 							<?php woocommerce_product_loop_start(); ?>
 
-								<?php woocommerce_product_subcategories(); ?>
-
 								<?php while ( have_posts() ) : the_post(); ?>
 
 									<?php
@@ -93,7 +91,7 @@ get_header( 'shop' ); ?>
 								pagi_posts_nav();
 							?>
 
-						<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+						<?php else: ?>
 
 							<?php
 								/**

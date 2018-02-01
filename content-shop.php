@@ -93,8 +93,6 @@ if(have_posts()):the_post();
 
                 <?php woocommerce_product_loop_start(); ?>
 
-                <?php woocommerce_product_subcategories(); ?>
-
                 <?php while ( $bella_query->have_posts() ) : $bella_query->the_post(); ?>
                     <?php
                         /**
@@ -123,7 +121,7 @@ if(have_posts()):the_post();
                 <?php pagi_posts_nav($bella_query);
                 wp_reset_postdata();?>
 
-            <?php elseif ( ! woocommerce_product_subcategories( array('before' => woocommerce_product_loop_start( false ), 'after'  => woocommerce_product_loop_end( false )))) : ?>
+            <?php else: ?>
                 <?php 
                 /**
                  * woocommerce_no_products_found hook.
