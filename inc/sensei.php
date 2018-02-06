@@ -86,7 +86,7 @@ function sv_wc_memberships_sensei_restrict_lesson_details() {
         return;
     }
     // if access start time isn't set, or is after the current date, remove the video
-    if (   ! wc_memberships_get_user_access_start_time( get_current_user_id(), 'view', array( 'lesson' => $post->ID ) )
+    if ( ! wc_memberships_get_user_access_start_time( get_current_user_id(), 'view', array( 'lesson' => $post->ID ) )
         || current_time( 'timestamp' ) < wc_memberships_get_user_access_start_time( get_current_user_id(), 'view', array( 'lesson' => $post->ID ) ) ) {
         remove_action( 'sensei_single_lesson_content_inside_after', 'bella_sensei_add_audio_pdf' );
     }

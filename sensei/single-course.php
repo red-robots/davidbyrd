@@ -9,11 +9,14 @@
  * @category    Templates
  * @version     1.9.0
  */
+global $search_link_id;
+$search_link_id = 10;
 ?>
 
-<?php  get_sensei_header();  ?>
+<?php get_sensei_header();  ?>
 
 <article <?php post_class( array( 'course', 'post' ) ); ?>>
+    <?php get_template_part("content-aside-cart-sensei");?>
 
     <?php
 
