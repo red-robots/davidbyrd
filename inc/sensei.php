@@ -79,7 +79,7 @@ if(!function_exists('bella_sensei_add_audio_pdf')){
  *
  * This will also remove the "complete lesson" button until the lesson is available.
  */
-function sv_wc_memberships_sensei_restrict_lesson_details() {
+function bella_wc_memberships_sensei_restrict_lesson_details() {
     global $post;
     // sanity checks
     if ( ! function_exists( 'wc_memberships_get_user_access_start_time' ) || ! function_exists( 'Sensei' ) || 'lesson' !== get_post_type( $post ) ) {
@@ -91,4 +91,4 @@ function sv_wc_memberships_sensei_restrict_lesson_details() {
         remove_action( 'sensei_single_lesson_content_inside_after', 'bella_sensei_add_audio_pdf' );
     }
 }
-add_action( 'wp', 'sv_wc_memberships_sensei_restrict_lesson_details' );
+add_action( 'wp', 'bella_wc_memberships_sensei_restrict_lesson_details' );
