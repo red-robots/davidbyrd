@@ -2,7 +2,8 @@
 /**
 * Template Name: Sitemap Page
 */
- get_header(); ?>
+ get_header();
+ global $wpdb; ?>
 
 <div id="main">
 
@@ -12,7 +13,6 @@
 <div class="page-content">
      <h1><?php the_title(); ?></h1>
      <?php the_content(); ?>
-     
 <div id="sitemap">
 <ul>
 <?php /* Our navigation menu. If one isn't filled out, wp_nav_menu falls back to wp_page_menu. The menu assigned to the primary location is the one used. If one isn't assigned, the menu with the lowest ID is used. */ ?>

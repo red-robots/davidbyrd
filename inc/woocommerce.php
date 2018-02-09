@@ -241,4 +241,23 @@ if(!function_exists('bella_woocommerce_product_add_to_cart_text')){
 		}
 	}
 }
+if(!function_exists('bella_add_email_completed_content')){
+	/**
+	 * @snippet       Add Content to the Customer Processing Order Email - WooCommerce
+	 * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
+	 * @sourcecode    https://businessbloomer.com/?p=385
+	 * @author        Rodolfo Melogli
+	 * @compatible    Woo 3.2.6
+	 */
+	
+	//add_action( 'woocommerce_email_before_order_table', 'bella_add_email_completed_content', 20, 4 );
+	function bella_add_email_completed_content( $order, $sent_to_admin, $plain_text, $email ) {
+		if ( $email->id == 'customer_completed_order' ) {
+			$comments = $wpdb->get_results( "SELECT comments.comment_content FROM {$wpdb->comments} as comments WHERE comments.comment_post_ID = 1691 AND comments.comment_author like '%admin%' LIMIT 1;" );
+			if($comments && !empty($comments)){
+				echo $comments[0]->comment_content;
+			}
+		}
+	}
+}
 ?>
