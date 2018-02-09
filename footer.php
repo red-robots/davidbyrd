@@ -59,6 +59,7 @@
 </div>
 </div>
 <div id="footer2-right"><?php the_field('footer_info', 'option'); ?>
+<div id="footer2-right-sm"><?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?></div>
 <div id="footer2-right-sm"><a href="<?php bloginfo('url'); ?>/contact-us">Contact</a> &nbsp; | &nbsp; <a href="<?php bloginfo('url'); ?>/sitemap">Sitemap</a> &nbsp; | &nbsp; Site by <a href="http://www.bellaworksweb.com" target="_blank">Bellaworks</a></div>
 </div>
 

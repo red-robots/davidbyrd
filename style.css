@@ -1620,7 +1620,7 @@ text-align: right;
 
 	float: left;
 
-	height: 82px;
+	height: 109px;
 
 	background-color: #474747;
 
@@ -1672,7 +1672,7 @@ text-align: right;
 
 	width: 1000px;
 
-	height: 55px;
+	height: 84px;
 
 	padding-top: 15px;
 
@@ -1750,6 +1750,16 @@ text-transform: uppercase;
 
 	padding-top: 10px;
 
+}
+#footer2-right-sm ul {
+	margin: 0;
+	padding: 0;
+}
+#footer2-right-sm ul li {
+	margin: 0 5px;
+	padding: 0;
+	display: inline-block;
+	list-style-type: none;
 }
 
 
