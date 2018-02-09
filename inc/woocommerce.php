@@ -255,7 +255,7 @@ if(!function_exists('bella_add_email_completed_content')){
 		if ( $email->id == 'customer_completed_order' ) {
 			$comments = $wpdb->get_results( "SELECT comments.comment_content FROM {$wpdb->comments} as comments WHERE comments.comment_post_ID = 1691 AND comments.comment_author like '%admin%' LIMIT 1;" );
 			if($comments && !empty($comments)){
-				echo $comments[0]->comment_content;
+				echo '<p>'.$comments[0]->comment_content.'</p>';
 			}
 		}
 	}
