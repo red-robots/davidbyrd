@@ -186,6 +186,7 @@ function get_excerpt($count){
 	register_nav_menu( 'primary', __( 'Primary Menu', 'menu1' ) );
 	register_nav_menu( 'secondary', __( 'Secondary Menu', 'menu2' ) );
 	register_nav_menu( 'footer', __( 'Footer Menu', 'menu2' ) );
+	register_nav_menu( 'myaccount', __( 'My Account Menu', 'menu2' ) );
 ?>
 <?php
  add_filter('upload_mimes', 'custom_upload_mimes');

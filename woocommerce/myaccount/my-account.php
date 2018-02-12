@@ -26,8 +26,10 @@ wc_print_notices();
  * My Account navigation.
  * @since 2.6.0
  */
-do_action( 'woocommerce_account_navigation' ); ?>
-
+//do_action( 'woocommerce_account_navigation' ); ?>
+<nav class="woocommerce-account-navigation">
+	<?php wp_nav_menu( array( 'theme_location' => 'myaccount' ) ); ?>
+</nav>
 <div class="woocommerce-MyAccount-content">
 	<?php
 		/**
@@ -36,4 +38,5 @@ do_action( 'woocommerce_account_navigation' ); ?>
 		 */
 		do_action( 'woocommerce_account_content' );
 	?>
+	<p>Welcome to your account dashboard. This is where you can check your order status, find your online courses and downloads, manage your subscriptions, manage your shipping and billing addresses, and edit your password and account details.</p>
 </div>
