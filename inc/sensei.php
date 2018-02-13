@@ -13,12 +13,12 @@ if(!function_exists('bella_add_column_to_my_courses')){
         echo "</nav>";
     }
 }
-if(!function_exists('bella_text_to_my_courses')){ 
+/*if(!function_exists('bella_text_to_my_courses')){ 
     add_action( 'sensei_my_courses_content_inside_before', 'bella_text_to_my_courses',10 );
     function bella_text_to_my_courses() {
         echo '<p>Welcome to your account dashboard. This is where you can check your order status, find your online courses and downloads, manage your subscriptions, manage your shipping and billing addresses, and edit your password and account details.</p>';
     }
-}
+}*/
 if(!function_exists('bella_sensei_add_audio_pdf')){
     //add_action('sensei_single_lesson_content_inside_after','bella_sensei_add_audio_pdf',10,1);
     function bella_sensei_add_audio_pdf($id){

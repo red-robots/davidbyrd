@@ -32,6 +32,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 ?></p>
 
+<?php $dashboard_text = get_field("dashboard_text", "option");
+if($dashboard_text):
+	echo $dashboard_text;
+endif;?>
+
 <p><?php
 	printf(
 		__( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a> and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' ),

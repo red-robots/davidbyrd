@@ -38,5 +38,4 @@ wc_print_notices();
 		 */
 		do_action( 'woocommerce_account_content' );
 	?>
-	<p>Welcome to your account dashboard. This is where you can check your order status, find your online courses and downloads, manage your subscriptions, manage your shipping and billing addresses, and edit your password and account details.</p>
 </div>
