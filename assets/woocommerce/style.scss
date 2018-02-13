@@ -728,40 +728,63 @@ align-self: $value;
 .page-template-page-woocommerce .page-content li {
     background: none;
 }
-#main .woocommerce-account-navigation {
-    background-color: #D8A958;
-    box-sizing: border-box;
-    padding: 10px 20px 20px 0;
-    float: left;
-    width: 25%;
-    @media screen and (max-width: 768px){
-        float: none;
-        width: 100%;
-    }
-    * {
+.page-template-page-woocommerce .page-content ul {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    -ms-grid-columns: 1;
+}
+#main {
+    .course.type-course, .lesson.type-lesson {
+        padding: 20px;
         box-sizing: border-box;
-    }
-    ul {
-        margin: 0;
-        padding: 0;
-        columns: 1;
-        -webkit-columns: 1;
-        -moz-columns: 1;
-        -ms-grid-columns: 1;
-        li {
-            list-style-type: none;
-            padding: 10px 0 0 20px;
+        width: 100%;
+        >.wrapper {
             margin: 0;
-            background: none;
-            display: block;
+            float: right;
+            width: 68%;
+            @media screen and (max-width: 768px){
+                float: none;
+                margin: 20px 0 0 0;
+                width: 100%;
+            }
+        }
+    }
+    .woocommerce-account-navigation {
+        background-color: #D8A958;
+        box-sizing: border-box;
+        padding: 10px 20px 20px 0;
+        float: left;
+        width: 25%;
+        @media screen and (max-width: 768px){
+            float: none;
             width: 100%;
-            a {
-                color: white;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1;
+            -ms-grid-columns: 1;
+            li {
+                list-style-type: none;
+                padding: 10px 0 0 20px;
+                margin: 0;
+                background: none;
                 display: block;
-                text-decoration: none;
-                &:hover {
+                width: 100%;
+                a {
                     color: white;
+                    display: block;
                     text-decoration: none;
+                    &:hover {
+                        color: white;
+                        text-decoration: none;
+                    }
                 }
             }
         }

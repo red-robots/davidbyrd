@@ -12,9 +12,6 @@
         </div><!--.col-1-->
         <div class="break"></div><!--.break-->
         <div class="col-2">
-            <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') );?>">
-                <i class="fa fa-user"></i>
-            </a>
             <a href="<?php echo wc_get_cart_url();?>">
                 <i class="fa fa-shopping-cart"></i>
             </a>
