@@ -735,7 +735,7 @@ align-self: $value;
     -ms-grid-columns: 1;
 }
 #main {
-    .course.type-course, .lesson.type-lesson {
+    .course.type-course.page, .lesson.type-lesson.page {
         width: 1000px;
         min-height: 600px;
         padding-top: 35px;

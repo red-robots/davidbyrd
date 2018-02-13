@@ -16,7 +16,7 @@ $search_link_id = 10;
 <?php  get_sensei_header();  ?>
 
 <?php the_post(); ?>
-<article <?php post_class( array( 'lesson', 'post' ) ); ?>>
+<article <?php post_class( array( 'lesson', 'post', 'page' ) ); ?>>
     <nav class="woocommerce-account-navigation">
         <?php wp_nav_menu( array( 'theme_location' => 'myaccount' ) );?>
     </nav>
