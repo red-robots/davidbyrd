@@ -250,7 +250,7 @@ if(!function_exists('bella_add_email_completed_content')){
 	 * @compatible    Woo 3.2.6
 	 */
 	
-	add_action( 'woocommerce_email_before_order_table', 'bella_add_email_completed_content', 20, 4 );
+	//add_action( 'woocommerce_email_before_order_table', 'bella_add_email_completed_content', 20, 4 );
 	function bella_add_email_completed_content( $order, $sent_to_admin, $plain_text, $email ) {
 		global $wpdb;
 		if ( $email->id == 'customer_completed_order' ) {
