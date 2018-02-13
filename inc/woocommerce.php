@@ -252,6 +252,7 @@ if(!function_exists('bella_add_email_completed_content')){
 	
 	add_action( 'woocommerce_email_before_order_table', 'bella_add_email_completed_content', 20, 4 );
 	function bella_add_email_completed_content( $order, $sent_to_admin, $plain_text, $email ) {
+		global $wpdb;
 		if ( $email->id == 'customer_completed_order' ) {
 			$comments = $wpdb->get_results( "SELECT comments.comment_content FROM {$wpdb->comments} as comments WHERE comments.comment_post_ID = 1691 AND comments.comment_author like '%admin%' LIMIT 1;" );
 			if($comments && !empty($comments)){
