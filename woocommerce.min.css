@@ -142,8 +142,9 @@
 .bundled_product.bundled_product_summary.product .bundled_product_images{float:none;margin:0}
 .page-template-page-woocommerce .page-content li{background:0}
 .page-template-page-woocommerce .page-content ul{columns:1;-webkit-columns:1;-moz-columns:1;-ms-grid-columns:1}
-#main .course.type-course,#main .lesson.type-lesson{padding:20px;box-sizing:border-box;width:100%}
-#main .course.type-course>.wrapper,#main .lesson.type-lesson>.wrapper{margin:0;float:right;width:68%}
+#main .course.type-course,#main .lesson.type-lesson{width:1000px;min-height:600px;padding-top:35px;padding-bottom:70px}
+@media screen and (max-width:1200px){#main .course.type-course,#main .lesson.type-lesson{width:90%;padding-left:5%;min-height:200px;padding-top:35px;padding-bottom:30px}
+}#main .course.type-course>.wrapper,#main .lesson.type-lesson>.wrapper{margin:0;float:right;width:68%}
 @media screen and (max-width:768px){#main .course.type-course>.wrapper,#main .lesson.type-lesson>.wrapper{float:none;margin:20px 0 0 0;width:100%}
 }#main .woocommerce-account-navigation{background-color:#d8a958;box-sizing:border-box;padding:10px 20px 20px 0;float:left;width:25%}
 @media screen and (max-width:768px){#main .woocommerce-account-navigation{float:none;width:100%}
