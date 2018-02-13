@@ -155,10 +155,12 @@ $button_text = get_field("header_button_text","option");
 if($button_link&&$button_text):?>
     <div class="social-icon digital-vault" style="margin-right: 3px;"><a href="<?php echo $button_link;?>"><?php echo $button_text;?></a></div>
 <?php endif;?>
-<?php $button_link = get_field("header_button_link_2","option");
+<?php 
+$button_link = get_field("header_button_link_2","option");
 $button_text = get_field("header_button_text_2","option");
-if($button_link&&$button_text):?>
-    <div class="social-icon digital-vault" style="margin-right: 3px;"><a href="<?php echo $button_link;?>"><?php echo $button_text;?></a></div>
+$button_text_logout = get_field("header_button_text_logout_2","option");
+if($button_link):?>
+    <div class="social-icon digital-vault" style="margin-right: 3px;"><a href="<?php echo $button_link;?>"><?php if($button_text&&!is_user_logged_in()): echo $button_text; elseif($button_text_logout&&is_user_logged_in()): echo $button_text_logout; endif;?></a></div>
 <?php endif;?>
 </div>
 
