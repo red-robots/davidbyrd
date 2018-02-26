@@ -234,7 +234,7 @@ if(!function_exists('bella_woocommerce_product_add_to_cart_text')){
 	function bella_woocommerce_product_add_to_cart_text($default) {
 		global $product;
 
-		if( $product->is_type('bundle') || $product->is_type('subscription')) {
+		if( $product->is_type('bundle') || $product->is_type('subscription') || $product->is_type('variable-subscription')) {
 			return __( 'Add to cart', 'woocommerce' );
 		} else {
 			return $default;
