@@ -261,4 +261,12 @@ if(!function_exists('bella_add_email_completed_content')){
 		}
 	}
 }
+
+function bella_wc_subscriptions_custom_price_string( $pricestring ) {
+    $pricestring = str_replace( 'for 1 month', '', $pricestring );
+
+    return $pricestring;
+}
+add_filter( 'woocommerce_subscriptions_product_price_string', 'bella_wc_subscriptions_custom_price_string' );
+add_filter( 'woocommerce_subscription_price_string', 'bella_wc_subscriptions_custom_price_string' );
 ?>
