@@ -1465,7 +1465,7 @@ zoom: 1;
 .widecolumn {margin-left: auto; margin-right: auto;float: none !important;}
 
 
-.page-content ul {
+.page-content ul:not(.woocommerce-error) {
 
  list-style-type: none;
 
