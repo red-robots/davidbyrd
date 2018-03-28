@@ -1465,7 +1465,7 @@ zoom: 1;
 .widecolumn {margin-left: auto; margin-right: auto;float: none !important;}
 
 
-.page-content ul:not(.woocommerce-error) {
+.page-content ul {
 
  list-style-type: none;
 
@@ -1474,12 +1474,6 @@ zoom: 1;
  margin-left: 0px;
 
  margin-top:10px;
-
- columns: 2;
-
- -webkit-columns: 2;
-
-  <!--  -moz-columns: 2;-->
 
  }
 
