@@ -12,6 +12,7 @@ if( function_exists('acf_add_options_page') ) {acf_add_options_page();}
 // Enqueueing all the java script in a no conflict mode
  function ineedmyjava() {
 	if (!is_admin()) {
+		wp_enqueue_style( 'acstarter-style', get_stylesheet_uri(), array(), '0123' );
  
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', false, '1.8.3', true);
