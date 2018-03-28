@@ -20,12 +20,6 @@ if( isset($_GET['page']) && $_GET['page'] === 'gf_activation' ) { ?>
 
 
 
-
-
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-
-
-
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/colorbox.css" />
 
 
