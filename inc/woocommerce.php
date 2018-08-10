@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Change number or products per row to 3
+ */
+add_filter('loop_shop_columns', 'loop_columns');
+if (!function_exists('loop_columns')) {
+	function loop_columns() {
+		return 3; // 3 products per row
+	}
+}
+
 if(!function_exists('woocommerce_support')){ 
 	add_action( 'after_setup_theme', 'woocommerce_support' );
 	function woocommerce_support() {
@@ -117,6 +128,7 @@ if(!function_exists('bella_loop_shop_per_page')){
 	function bella_loop_shop_per_page( $cols ) {
 	// $cols contains the current number of products per page based on the value stored on Options -> Reading
 	// Return the number of products you wanna show per page.
+
 	$cols = 12;
 	return $cols;
 	}
